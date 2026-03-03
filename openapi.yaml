@@ -1,16 +1,20 @@
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
-metadata: {}
+metadata:
+  name: account-service-apis
+  description: Api for customer and user authorization
+  tags:
+  - account-service
 spec:
   type: openapi
   lifecycle: production
-  owner: ''
+  owner: account
   definition:
     openapi: 3.0.3
     info:
       title: accounts-service
-      description: ''
+      description: This is README of eatclub-rspec-openapi
       contact:
         email: ''
       version: 1.0.0
@@ -113,7 +117,7 @@ spec:
                     should_archive_customer:
                       summary: should archive customer
                       value:
-                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjcsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6ImFlNmRjYjY5LTkxNmYtNGE4ZC05ZmE4LTUzNzQ3MjcyOTgwZTE3NzI1Mzg0MjciLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiJiMmY1NDA4NDliMWNhNzU2MmRmYTY4NmI5ZjMxYzQ4MiIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.VqUShz6z5pPY6EgKZqVjc2hXaUJYjAHsfLMWB6ccThOvTenQPrekBOHPN5rvsAzhuPo75dcVUJ9Tx2y-o5XlfGAGWYpphMKo1vJNw29JPy6Y3gFAP7z1ZedCjHuq9dS_6yzvOPaot-aJdxtkfHMBEd2QXC4ST0iiXb8gQ2pflNRshV7DOrwkRKMmkCHtLaagdmM--jsYLL7iYuQaPyINinROkd1f5WT3n6duOD0M4ON2T6Brsy835cgWskFoIy7pFWl2PC0dC3nio8liTA77ZYeHQuo4seBCycieSSiVHEXtaB0aRDG4ezUaeiK75xu-4M-T4ZQmzb9ef7FWT6_kO_3Kp5jTBJG1PXaaQyh4Ph_2uIJotvmPGWXh4uTvZ3MD3fIm_02RWk7SZIyQr5f9POnFXASfk9jxyBxHZHUu32527N46R5IVQfWBhcV4b50ItgSlzHrH7pWD7cxkcvZe-kpKVp9S1LM2ZdxJx9IvH4WJ9xWXBpe0WdS_e5OiJIuSbuxcVC8qemK2-eOVx1KX2_ZPgSO-uYHd9f7f1QLsasHCH26UFP8GyU-eEsFm-RGzu2tIwZIyryxL7yJE0OkaJjunMtSBhu8zEQOkpBJUckNTzPl7LsDrwd-XTYZM5Z37j-kWvq0512lMYxSyv_shEAwr4k4tukBtpSFP2wr649c
+                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5NzksImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjY2MjU4YmUwLTE0NjctNDdkNi1hYjNkLTA5OWZiOThiMmNlYTE3NzI1Mzg5NzkiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6IndlYiIsImRldmljZV9pZCI6IjViMmYyMTRmYzRkZjYwNzhiNmE2YWVjZTg3NmMxMTQ0IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.CyoO9GlHjRiH6HrPhLsRIh_unCq9znGghTb_YfDdJP2uyO31WyB8OpIuzDVbnqg-Qwxr3vlPTPqKaiBkHNVUc31yZjkS3exSs0GaxTwkaeES76Fv4L5ZUkhJxs4V5DAgtYoIaOsTYaw-qw1LrsF76uG23qaZHsGqR5-CtWfR_R7OYKJXyiUkXjfSQTQF8c6H66d1e9z06wLtLJfxzQkp6LCi4JTdyfjLHc0FP_pBd9z6nc8KDJEnv2ELidY-X9iyTp16UfU1Wa4EjvDOryw07XeI81yYE-OjRjxYvglZJ5hwEzfQXpIaUlu3n9t5T_RaSkrT4XH725-gfhbNgyDJeF9FxY3rTZ5NYcFIYaX-5LkUz5CQOGfIz0gWRGSWw9TSTtAm6phzF3cjzTJD9g_9ovvks6vJgiAw0025a3yj03ZBgc44D_kOGjKwuitQh6Dwv0Nm0TcrFFGn2JPx5YcSq9X9CP3cPLBE4i3OaEYn3-6-Dwu22JQ62XyblN_BTGlH-gfaUjw5GmNeObi3K3Pu2rzLi0NmEh_hgND7K51VjdrkMAvUqQcIyq5IKB_aDxKfCQmVntif0ww8dS0hhLEYq98e8EAtAHXZVR1jS12nx8MuC5wpRGIFhoEk5Sg-maRJvP-XIXQ0pPoMI-oPptYOTy8o395WqzgNUr7tiwXRrP0
                         meta:
                           code: 200
                           status: OK
@@ -124,7 +128,7 @@ spec:
                     should_sign_out_customer_on_success:
                       summary: should sign_out customer on success
                       value:
-                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjcsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6ImI5ODYyNzdkLTQzNmYtNDc0YS1iMjJlLWVlMzI1Y2MzMmViZjE3NzI1Mzg0MjciLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImlvcyIsImRldmljZV9pZCI6IjJkMmY1YTZiZDI3NjFkMzI1YjkwYzdmZDkyMGFlZmM4IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.nuWM2ttB5x0vALoYviWvebDz-bv0k0OgTBqHHkPnx2QT71yh028p8-sQQ2y26QtxZxxGK6vgQDqZPnO4hXQclS5HcyPuQiS_oVQBkJoUcWG9TwGVgrvfaVjxJ-ADFxeVQCuWQUPSAw85NDNddOC1cmcC2HLh9DMmntWpNa0OPBLT81w07ml9eyIcy2KaV79u7lg_M_tTFwM2ZK4NbqRyLWgf9AOtxmYRAiGbP8-tYXf801vpzSTqil-lXYjQTrAfPiYjeH6cMA9DsGgoAfoyZw-LgmMufOPkQVuAmOLvvcO8kL6DhiQQw7hIinHSUtdeUHAxcE57jcWIN6l3lTiBc8ITtUnU0mfrXyhx1l8ITXLuFXqPkkyW3F6G7LjQVRgLqRU9DO6uqqkT8ML1t2l-ki-q7bIXcjtI_uikxHPNEFfLxRQAuTiepO-oG3POpDwwZevSg-uefHEiNkwMszCiI-fh2_iMJioCCd5Dw1dHscvVb0rr1DlAggY9FwfwNjSTUABstJFm5hr-f7P0yTDU2_YWEpS40o_nFSgWycWi5jkpT211XH9s9cdxkM0VYLarkbCiyNH9OgzeL3JK9zbIHwdL2k1AP5pbEwdP1pjSzhcrMXES_lMFevtEZ2Y6v44zT8Zzz-7HeAXHyCgNm87T6rUbP3_gy4aK0h2kL_kTf1w
+                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5NzksImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjA5YmMxODBkLWIyOTMtNDg2My04NmQ0LWQ3NDhiYjVlOTlhYzE3NzI1Mzg5NzkiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImlvcyIsImRldmljZV9pZCI6IjZhMDUwMWY4NmI1NmZhNDQxMDBmM2Y3YzJiZDNiMzg3IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.bsa-TJ4uy1jyCna_L5aa2LdLIYel1Vs7DviHIGQORomOKWobZqusub8oiCugq4XwG8Gq1OKW51qY1QEbjiRy_0AwOoCoekh5F4iDf6rB15ggaUUlenoUcq6F0NMmgxxOWGnnm2qGTYxpvtOz_a3XLDXCbUCVKJrlmhcsyhCS-R-9HyHdLJbJdmNW8LD9x6MuWF5cGKSLVJFFWJtdVfCQ2EDthY-LiER3w0IPQz_HEk1l6_n6Y4WAZgRu2ojFpDx04Q4DapeGfk-JcT9tJWTV1tXr52dqXJIYHbIH5GQv5NkvRTWv8clwv1VHwuZGUHmPgEmifWXRrfGKWUiqG88swCd4TtH7U9KKUzkGbfPL0IKIvLJrWYQo0Y5gbw71_UKKKfb7JIF6c4G-_rwKzY41mMzf5U17XFwz6f04GUmsE8s047mzfPu8VUJJjtgo127TXziuKn4kUPIDmn0ek6DOGlYIft665qrE8qvUUIpJRyORgP3SMwZWzjO4-b7hBYvt9R7t0a8x1uUozaIjD9-yedNSqDU6gF5vyDe3qBujkVYE6A8gi6gIqMdUpHOIgtlt12udmyYjv_p0vyPX5gehwoCTN4Jrlt5zkNop4IDAWEQZAcoPztODPDpNdC78DDP0YYgS-MFwKJS6f_BSIutw8Ysmb_ketKxDaxYX0csC36c
                         meta:
                           code: 200
                           status: OK
@@ -159,31 +163,31 @@ spec:
                   if_otp_send_limit_exceeds:
                     summary: if otp send limit exceeds
                     value:
-                      phone_no: '8245355151'
+                      phone_no: '9969035722'
                   if_wrongly_entered_phone_no_of_other_customer_first_but_after_change_customer_with_new_phone_number_also_exists:
                     summary: if wrongly entered phone_no of other customer first but
                       after change customer with new phone number also exists
                     value:
-                      phone_no: '8116755553'
+                      phone_no: '7068943483'
                   if_wrongly_entered_phone_no_of_other_customer_but_after_change_customer_with_new_phone_number_does_not_exist:
                     summary: if wrongly entered phone_no of other customer but after
                       change customer with new phone number does not exist
                     value:
-                      phone_no: '9186120512'
+                      phone_no: '8190102299'
                   was_signing_up_but_changed_phone_no_and_the_new_phone_no_also_does_not_exist:
                     summary: was signing_up but changed phone_no and the new phone_no
                       also does not exist
                     value:
-                      phone_no: '6297723195'
+                      phone_no: '9683040415'
                   was_doing_native_sign_up_but_changed_phone_no_but_customer_with_new_phone_no_already_exist:
                     summary: was doing native sign_up but changed phone_no but customer
                       with new phone_no already exist
                     value:
-                      phone_no: '7385279383'
+                      phone_no: '6077948121'
                   was_signing_up_with_google_and_changed_phone_no:
                     summary: was signing_up with google and changed phone_no
                     value:
-                      phone_no: '8487265711'
+                      phone_no: '8038218320'
           responses:
             '200':
               description: was signing_up with google and changed phone_no
@@ -347,7 +351,7 @@ spec:
                   if_otp_send_limit_exceeds:
                     summary: if otp send limit exceeds
                     value:
-                      phone_no: '5675554325'
+                      phone_no: '5250470568'
                   for_new_customer:
                     summary: for new customer
                     value:
@@ -355,11 +359,11 @@ spec:
                   for_existing_customer_with_unverified_phone:
                     summary: for existing customer with unverified phone
                     value:
-                      phone_no: '7275429230'
+                      phone_no: '6192486497'
                   for_existing_customer_with_verified_phone:
                     summary: for existing customer with verified phone
                     value:
-                      phone_no: '7542090420'
+                      phone_no: '8323110509'
           responses:
             '200':
               description: for existing customer with verified phone
@@ -536,9 +540,9 @@ spec:
                     summary: should create customer when role is system user but password
                       is nil
                     value:
-                      name: Mardell Koss CPA
-                      email: dawna@huels-kris.name
-                      phone_no: '8743426813'
+                      name: The Hon. Merlyn McKenzie
+                      email: pete@willms.biz
+                      phone_no: '9229370428'
                       active: 'true'
                       brand_id: '1'
                       verified_phone: 'true'
@@ -546,10 +550,10 @@ spec:
                     summary: should not create customer when User token with system
                       user as role is used
                     value:
-                      name: Candace Schiller
-                      email: luella@koepp.co
-                      phone_no: '5080855195'
-                      password_digest: e59068a7b4fc7f8b659d926d330810bf
+                      name: Kendal VonRueden
+                      email: wilson@wolff.name
+                      phone_no: '9226783269'
+                      password_digest: 8b5ab9c4c450424d5f328919fc984c21
                       active: 'true'
                       brand_id: '1'
                       verified_phone: 'true'
@@ -557,10 +561,10 @@ spec:
                     summary: should not be authorized to create customer when a Service
                       Account token without a system user role is used
                     value:
-                      name: Rev. Darlene Marquardt
-                      email: vida.haley@berge.io
-                      phone_no: '6395127860'
-                      password_digest: e52f8efc086f59ab6d4398ecc4509c0f
+                      name: Aisha Bins Ret.
+                      email: carlos.jacobs@renner.io
+                      phone_no: '7241781838'
+                      password_digest: de4df28cb9011d69452b2cf22c92a1d5
                       active: 'true'
                       brand_id: '1'
                       verified_phone: 'true'
@@ -568,10 +572,10 @@ spec:
                     summary: should create customer when a Service Account token with
                       role system user is used
                     value:
-                      name: Fr. Dario Emmerich
-                      email: shavonne@flatley.org
-                      phone_no: '8992640228'
-                      password_digest: e910f1c095592f66f28a98baec2fe261
+                      name: Mrs. Jayson Smitham
+                      email: roxane_marks@wilkinson.com
+                      phone_no: '6438026687'
+                      password_digest: ac6e02f055545b51eccab82287e761f3
                       active: 'true'
                       brand_id: '1'
                       verified_phone: 'true'
@@ -766,7 +770,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzYsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNzY3MTkyMzYzMCIsImVtYWlsIjoic2FudG8udGhpZWxAbWlsbHMtY3JvbmluLmlvIiwic3NpZCI6ImNkMjljZTI3LTE1Y2ItNDkwZS04ODNiLTlkNjNkY2VlNTFkZSIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6IndlYiIsImRldmljZV9pZCI6IjU5ZmNjMDA1YjllMzhhMjRkYzBjYzk2OTRjNjY2NTVjIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.G0UGJo03k_BN3u4iLrwoMfwpyT-ScuGnyesrEmjZbp_HBs7rKv9gKMEy4hebfwd-I-bFIHWtj84tqFPS3Evp_-onhz2fDkVLZXOteoukzD8cqu2BkfucBbeJwm7z-toMKUiDW1nXrP-GSFzP5ruHApqKvcCSv0CR1eGk5GgR4vPZ7uN_mACmtkuBk23anMAPKM89mhk6mtVi2DHOuLQSnLzD5WzCq4jt4Id3cR1jLOdaqYgC9wrRZKuJEUr3wXXAN2u3K5gXK4zXt0wpcYmKRRFiPPxjqpjdD2WvQm_2_KdMsj7fKcx63skYldPOSE86Z_faMJOvaDSCadr5XdmxBjFu-nrNN-hjIeFKx_EJ0_BxTmGvQuZOAh1Lg2VmShY1J-9aY3ZqMI6sGx33bv_obwH1weshs3yzpQmcCzB8AhCeUReJLaeUDE14iiWRor5rQYt__49mNPUfvVePT9gSTE9s8hXJtSls8WhD6JgTgc78rRJgPV3RkBgS5BTUaxf9mzh6G5QX_KompqIJ6LN6TDXtAaxmhpzY7ReGE3kSxSQtPb8Qgro7oP6YeAaUPNu4QZzAXszx6Mltyiz7x7K3nahtwytZoNL__0pWBUbeeRN-8KWldz43RtHcqt07BWSRo-RHRt7MsX5NF7eq7Mbao4OalhCE2Isg5teoUHaPgv8
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODcsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNzI1Njg1NDQ5MiIsImVtYWlsIjoibWF6aWUuaGVybWFuQHJvYmVsLmNvbSIsInNzaWQiOiJmNGZiYjdkYi05MzkzLTQxMzYtYWRjNi1mODM5NmMzNjRiMjEiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJpb3MiLCJkZXZpY2VfaWQiOiIxZGI1NjdmOTBhZTdlZmZmOWVhN2Q1N2JiYTgwZDFjZiIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.lXoo_QpWAaMauZKF_JhOpZfTipAWMyOCGjZt29jEG0rg6XEXbV7OGKOJOq7sGOfs4xzDsJi6mkVuoep-c6awoZqzBOVumIamXt09sRtJiViHel8zXRHVzOPltut_siV6TJN7-jzZWr_7J-Kfhc2HTiLYmsi27VZ059vtnKCu3m-GaY-IUdLoz4AlrBZuwK_KD5ODMgfK4yX1eI7D0yi_6AlP4qHPdi3ph-uSC9sm2KN4SvKZfhkr8N7_9ZeGFrPUhAeCOjTcSBDVA946JksDCOL3GWXgLsrghT1fXggjzCBDmIrore0-hWk-yN1toFgAFGCIH0fHJOoGsFIXMyOW5F6nRxtlKXKJOeqLqOXrYJ3zS-zF8On61XFEFNwAqxFOnfPcq1TZKxZQB5YVJPOYICRQnyZyPx6Nlu5n5QyuQcCDGs1GZ1A-_N6Xhq4Sv9YU18RU2BhsF5heTfM13o6RledMtj9I-pUD-DcVs6roKSjxgBsIouMmuRGn0HADP_1NN2XOT5pjNiG6XDCDVY-pfxotxXF2EOo8TlOUkJjep0gPbor40q9oQE09N-ManK4bJFjBE_s2DY_s_Ucoa6hodqp6vR2xOFbc4DlnkjWe609OjBVglwOcqqx2_i5sFgnrWYx0YLX6A7Oe1--GNzGQ64djIHgGQYT5eBnTt2oiPoY
                     should_refresh_token_for_valid_expired_signed_token:
                       summary: should refresh token for valid expired signed_token
                       value:
@@ -777,7 +781,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzYsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiODE1MzkzMTU1NiIsImVtYWlsIjoiYmV2ZXJseUBtYW5uLmJpeiIsInNzaWQiOiI5ZTBiMjNkZS00YTNkLTQxMWEtOWVjYy1iMjVhYmFiYzEyY2QiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJ3ZWIiLCJkZXZpY2VfaWQiOiIwYzRlMTA1OWM2OGM1OTgxODU1MmQ2ZTNhNGE4YzAzMiIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.nTJAFauFR9MoVKzOJsu79P9se6NrojL47d2qTGKnSlVdFVzOsXwDjDNUEGo2juK7e8YJGx0sDCVopqW1X_aBW3vsCyPMO0xxZCcLA3sQYUzCrJk31gEd12ApnmzyeiS450lbwGCYzAa6RN4QMdRwuj_5EuSJNODIi4dSjh1d1aNh1UOEYY_MthTiS1pA_At2gaB1PTItlldGBVAA3PFfQ6SJ7pvkXzV14KoVFkCZTT7fVz3vylBm6tJ2_REJkWgHNLGHeYItqg2lrItVRcn9graGct61Ser-cgchcL5dBKf2WkX68tBxoEUVKUHLVMvOqC1Iye_iVteX0Vh4hkCmh0DlQlBugy-BMlnljVkiN9ZG4eZQiTvc3OwC_s0CtlPqRqFVQb_UkWY8JRrnJXu33AWnrvDmkf0p5ZMwpzqywSpXu2aMlXsCuG9UQDZKFfNj1VlD6JvTXY8J-ORzPOkSgVFfuZN1YDeYSGqQczIxse_FaFKpcde65rjdh329Qn0-QjKoNFSzmTbAGNJC8ptevdBsRO8wesGOvLRB5p7KJIxW3eS_KaqjhdJv0imks1Tx5NSnEufEroFcmkIV4C67UU04QdCw2sTgaprv73RbgLCl6ZkpIsCDx2c1yIh3uOL90XU_2-RGxdMzxcS03ZzCJswU8Ie8wVvPT353vgAr55I
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODcsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNTU1Mzk2MjAxOSIsImVtYWlsIjoiZWxpc2VvQHJvbWFndWVyYS1mcml0c2NoLmNvIiwic3NpZCI6IjE1MDc2YTcxLTIzNWYtNDMwYS04MGQ1LTdkM2ZkMGRhN2IyMyIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiIzNDVmYTBlMjI3NzY2NTY5YWFiOTM4NmM0NzdlOWEzZSIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.TOwb5QNVc5VKXXbAvCSwl6YuWi3rQ_Xcykdd9Vbmigb2ysy1i2KT_NGlhbch7mIhGfNKxH_HflK1jXzIWjpHXqnQKtcePGYMIE-L5es5xK0dbNzOHuAIhRwQAGHsDRBTDohm1VPd3AGiJZt4kUU4WPqIuq4fonLSGCK4cnbM1zbGhdSZNkiZcYbZF1aJ_Xv4SK1HHbcsNnkhaINhC4yDo9HQld6qNKFkLoRiMb8OOgZile4je9uhyB4fTCq9AAFJxd5QL8ZwDU8eQdvNCINGCSakXHzbLOUbJvRT6eR47wt5LVcqO4meCk_rXG4z2sEdla7jJ8TT0zYh74vkvYh9DIVyBfiG9B13ULYGHeWbagdEf_3fGWt0M0P3WxaamESjEYPWKzwUoMzwj0Tg_r7abCrg-7R_DKw85qPntprydmDYN3L4BcLFnqf9FSGSjcJZsk3IvNYCSeT_hd8ZLa0GRbo_CtNt5vworNSGHJ8jM51Ese6YGMZEz6cOplYQ9uH_bFVkJZGrNWKQUXky_LA3j0CT0pgkgm04lgj9bofGP--2oVMeeah4nugzV_HY8JoShacZlIkYAjoaimjewOdfx246Jn5e9al_5usyzPH6RnNcBPjmI3pTF1v65JQnYb85YRm7OsByd9dil6AZZEkJHsixY4KtqO2UdNmY3BOezjE
                     should_not_process_refresh_token_request_if_request_is_already_present_for_a_signed_token:
                       summary: should not process refresh token request if request
                         is already present for a signed_token
@@ -809,7 +813,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzYsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjY2ZjVkNGFmLWVjMzQtNDIyNi04Yzg0LTJhNTU5YWQyNDM4MjE3NzI1Mzg0MzYiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6IndlYiIsImRldmljZV9pZCI6IjI1NmZiOWE1ZjE2NGIxMWNmOGI0NmExNWI0MTNmN2Q2IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.az1ydvsXJLPreW4TrhgPpXZAeN5becPmx3g0B4goWeG7zco_aDfew4eeJgK3h3MJLvWzESc2Uhn4sVekerX3MKkzNhwYlUBs2YYLcKND2N4jYPtGYct-2CBWe7dpB9dtiFlG8ZqWInssDhYV09rtOPuuMbA6eGBGyIuP_aF8qU3AHtWG5zYGKuoPS9mV8vis2JLv8VP-Z3pIiuoutRTRl8CcncI1WQ43fe_2rvXG99dgMbv-Dm772wzRRPCEOFfJCG5M48i5nTkb8cpyMu1ZeRwUMxGC9N_PwMR7K7U9vjcBb6_Zj_ZyNlmXbIKVaXxcU3HJAg8CpWBjNJX48EpTRLs7XuB9sNSSYhof3dyRgJUixp6c8Hp8Lu4gFeCrpV7joxysVI7c_bvOed7gRtbeoQOSt-77foCpjMkylpcykKa1JFtZ9Ep8f-_R3tsY9Yf_ItyMp5ls5HGyJsMVF5TMuiKj_CX-jqTYsmq3kOir8HqPxDFOmM_p5A6AmshXwdJkQSkG4qMiEw5FWgF_5y4iybXZIO509iS3cXDr83E3SoJ0eRUmgQoEci6s1krLM3OvWM8tH4UaB2I0ke8uPCcozVrhzGgYjMev41rI5UVhStQ3Cvdq4MIc_n_zO6s9OwQcfylhhhx5dLQI1nz__QBqnZ5wBPsUCCa6LFMNyRH6pCs
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODcsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6ImMxNjk2YWVjLTliMjUtNDM3YS05NTJlLTBjNDlmNzEwZjZkYjE3NzI1Mzg5ODciLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiJiZDEzZmNjYTAxZjU0N2M0OTI4NTQ2NmRiMGYwZmVjZiIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.NTkzeKLhVtTk_tw20ve7oJ2jjLgev03BD2gtIVjjggGk-YGz-nmJcB1mA_v4NbbtVOv47fQuyJT8AlN-2clU5xc8lqYvSyQ9Dmn3FL9NZyLzwNcPwKGddpb7O5xRkpzn_TAhHOZfGuO3TJ_MQ4zQoeF-bqQc1S3LGNMNeG_HvJjU-g9TQe7QpzS0qdAQq8MyENgdtOeaIc5cgLiyUws0a_82UHU8uzFbmqc3W5msNkhbMvwulwGjt5Ld6g3rwwmbsi2xhWHVlEBhPZyYzNxIKX-H1M8cASTJk-k5XiTAEBwAnc1M4OatvF_zdPmEbqfH2YG_NA9yW3NziSlZWJBsE1kCyRm8Nwo5d4DyKOfne-HKsjI9-N5RAN8JRBWwvnmlCuRnv-aRsK3ogipGfVJMWG9yD0lcM36tAvV1izFQ9U7GVmTzpE_3cYZZNEmGzBF0h0ub5sR1ufVMdLkgNw788iJDdRbe18HR-xJK2ZlhOg6nO2QQ7BloYWbiSeo6OzQ2aYioIILADNgKvJshHEIiZWxcq4gZ3vpQxQ_gxhg0pY0amLzlsnugmVMmNbpVPogTd49BsR8cEKcpHbl3EUISIFbRD-No7MmQjjqEvSAJdobJWuSeL_ULjmId6nFZ8a26GJd31GX2ZFb7p1BTCdEBb-KnlzZ163Zjp5LhaZeBh4M
       "/customers/reset_password":
         post:
           summary: reset_password_create
@@ -834,21 +838,21 @@ spec:
                     summary: should not send reset_password otp on phone if customer
                       is not present
                     value:
-                      phone_no: '5234317523'
+                      phone_no: '6751676840'
                   should_send_reset_password_otp_on_phone_if_customer_is_present:
                     summary: should send reset_password otp on phone if customer is
                       present
                     value:
-                      phone_no: '8241629174'
+                      phone_no: '7409231102'
                   should_not_send_reset_password_otp_on_phone_if_limit_exceeds:
                     summary: should not send reset_password otp on phone if limit
                       exceeds
                     value:
-                      phone_no: '6010201910'
+                      phone_no: '7587741229'
                   should_not_support_reset_password_create:
                     summary: should not support reset_password_create
                     value:
-                      phone_no: '9582974418'
+                      phone_no: '7523294619'
           responses:
             '200':
               description: should not support reset_password_create
@@ -964,33 +968,33 @@ spec:
                   should_update_reset_password:
                     summary: should update reset_password
                     value:
-                      password: b760d6f5fb8135b3b9599a941d07ac32
-                      password_confirmation: b760d6f5fb8135b3b9599a941d07ac32
-                      token: '701838'
-                      phone_no: '8816494106'
+                      password: 7984c8a08c671c40382a856e29f0afb5
+                      password_confirmation: 7984c8a08c671c40382a856e29f0afb5
+                      token: '355349'
+                      phone_no: '7758616955'
                   should_not_update_reset_password_if_password_and_password_confirmation_do_not_match:
                     summary: should not update reset_password if password and password_confirmation
                       do not match
                     value:
-                      password: aedcaaf64acde4f7dcaa3c4c5e489d5a
+                      password: 387e524fd86257f9f216099a3a57d223
                       password_confirmation: abcdef
-                      token: '793790'
-                      phone_no: '5659892028'
+                      token: '861703'
+                      phone_no: '7973680565'
                   should_allow_reset_and_then_disallow_after_toggling_the_flag:
                     summary: should allow reset and then disallow after toggling the
                       flag
                     value:
-                      password: 278d3fa8bd1ac522a9f215b22ce5e2f2
-                      password_confirmation: 278d3fa8bd1ac522a9f215b22ce5e2f2
-                      token: '373097'
-                      phone_no: '5423419342'
+                      password: 534e5f293e8a32fd0a4e11cc760297f6
+                      password_confirmation: 534e5f293e8a32fd0a4e11cc760297f6
+                      token: '535462'
+                      phone_no: '8943588584'
                   should_not_support_reset_password:
                     summary: should not support reset_password
                     value:
-                      password: 00b29f4872a4a56a4ff8506c8a2e397c
-                      password_confirmation: 00b29f4872a4a56a4ff8506c8a2e397c
-                      token: '299325'
-                      phone_no: '8099068564'
+                      password: 643265883cf4be90618018eeacbe1db6
+                      password_confirmation: 643265883cf4be90618018eeacbe1db6
+                      token: '543773'
+                      phone_no: '5795397476'
           responses:
             '200':
               description: should not support reset_password
@@ -1097,52 +1101,52 @@ spec:
                   should_make_archived_=_false:
                     summary: should make archived = false
                     value:
-                      phone_no: '9429849060'
-                      password: 32e84543b733bb6bd4900a437a32a9b0
+                      phone_no: '5011515064'
+                      password: e50bd2da8e20699a17b07eb55974cd69
                   should_delete_redis_keys:
                     summary: should delete redis keys
                     value:
-                      phone_no: '8117344870'
-                      password: d10c97c4063fdf78a9ca3f751bcb0322
+                      phone_no: '6066352167'
+                      password: 1bca36586b79507a227d567d2a7adb4d
                   otp_sign_in:
                     summary: otp sign_in
                     value:
-                      phone_no: '7300260679'
+                      phone_no: '5814196190'
                       login_method: otp
-                      otp: '186314'
+                      otp: '700926'
                   should_not_allow_email_password_sign_in:
                     summary: should not allow email password sign_in
                     value:
-                      email: odell@parker.co
+                      email: emory@wehner-okon.co
                       password: password
                   allows_phone-password_sign-in_when_password_login_is_enabled_for_customers:
                     summary: allows phone-password sign-in when password login is
                       enabled for customers
                     value:
-                      phone_no: '6469988913'
-                      password: 631aeee1057f297a64c5ce08064cb599
+                      phone_no: '9051549204'
+                      password: d10f1e15cd58e0fa9e41cc8ff2e49415
                   doesn't_allow_phone-password_sign-in_when_password_login_is_disabled_for_customers:
                     summary: doesn't allow phone-password sign-in when password login
                       is disabled for customers
                     value:
-                      phone_no: '8817889648'
-                      password: 9b6bc184de36e92ca236681bda2cf567
+                      phone_no: '6969292937'
+                      password: 232ca24f67406e8da02520c9d4fc40d5
                   allows_and_then_disallows_phone-password_sign-in_based_on_the_flag:
                     summary: allows and then disallows phone-password sign-in based
                       on the flag
                     value:
-                      phone_no: '6323548516'
-                      password: df9c3dbf7a43df7e2579fa1747dfe4b9
+                      phone_no: '5460448875'
+                      password: 97d8eade773b7cf5c5bcb7311c4d67d5
                   should_not_allow_phone_password_sign_in_for_unverified_phone:
                     summary: should not allow phone password sign_in for unverified
                       phone
                     value:
-                      phone_no: '7549369555'
-                      password: 379f134804f2a24f4f24b9aef3c85fe4
+                      phone_no: '7679856284'
+                      password: 24fcbe7a21c27e28c3d4c132134a0d16
                   sign_in_via_link_with_wrong_token:
                     summary: sign_in via link with wrong token
                     value:
-                      phone_no: '8502735781'
+                      phone_no: '5345284308'
                       login_method: password_less
                       initiate: 'true'
                       brand_id: '1'
@@ -1150,7 +1154,7 @@ spec:
                   initiate_sign_in_via_link:
                     summary: initiate sign_in via link
                     value:
-                      phone_no: '7437385109'
+                      phone_no: '8403018487'
                       login_method: password_less
                       initiate: 'true'
                       brand_id: '1'
@@ -1168,7 +1172,7 @@ spec:
                     summary: validate sign_in via link and token exists in redis
                     value:
                       login_method: password_less
-                      token: 9de3be
+                      token: cd26e3
                   should_not_allow_whatsapp_otp_login_for_invalid_phone_no:
                     summary: should not allow whatsapp_otp login for invalid phone
                       no
@@ -1181,46 +1185,46 @@ spec:
                     summary: 'sign_in: otp via whatsapp'
                     value:
                       login_method: whatsapp_otp
-                      otp: '296482'
+                      otp: '990622'
                   should_not_allow_otp_sign_in_if_already_signed_in_via_whatsapp_otp:
                     summary: should not allow otp sign_in if already signed in via
                       whatsapp otp
                     value:
-                      phone_no: '5648971322'
+                      phone_no: '7413271574'
                       login_method: otp
-                      otp: '762488'
+                      otp: '220696'
                   should_not_allow_whatsapp_otp_sign_in_if_already_signed_in_via_otp:
                     summary: should not allow whatsapp_otp sign_in if already signed
                       in via otp
                     value:
                       login_method: whatsapp_otp
-                      otp: '172556'
+                      otp: '497034'
                   ? should_produce_a_whatsapp_otp_successfully,_even_when_a_standard_otp_has_already_been_generated,_upon_initiation_of_the_'whatsapp_otp'_login_method
                   : summary: should produce a WhatsApp OTP successfully, even when
                       a standard OTP has already been generated, upon initiation of
                       the 'whatsapp_otp' login method
                     value:
                       login_method: whatsapp_otp
-                      otp: '214368'
+                      otp: '420844'
                   should_create_customer_on_successful_sign_up_after_otp_validation:
                     summary: should create customer on successful sign_up after otp
                       validation
                     value:
-                      phone_no: '9268122823'
+                      phone_no: '6687270099'
                       login_method: otp
-                      otp: '586637'
+                      otp: '182557'
                   creates_a_customer_after_otp_validation,_even_with_an_empty_password:
                     summary: creates a customer after OTP validation, even with an
                       empty password
                     value:
-                      phone_no: '8671422094'
+                      phone_no: '8027801000'
                       login_method: otp
-                      otp: '639836'
+                      otp: '951036'
                   should_not_allow_any_authenticated_or_unauthenticated_entity_other_than_yellow_ai:
                     summary: should not allow any authenticated or unauthenticated
                       entity other than yellow_ai
                     value:
-                      phone_no: '7955626920'
+                      phone_no: '8099921406'
                       login_method: yellow_ai_direct
                       brand_id: '1'
           responses:
@@ -1282,9 +1286,9 @@ spec:
                       summary: should make archived = false
                       value:
                         account:
-                          name: Elisha Mohr
-                          email: leanna@gusikowski.biz
-                          phone_no: '9429849060'
+                          name: Marcell Breitenberg
+                          email: moises@reynolds.name
+                          phone_no: '5011515064'
                         secured_auth: false
                         meta:
                           code: 200
@@ -1293,14 +1297,14 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjcsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiOTQyOTg0OTA2MCIsImVtYWlsIjoibGVhbm5hQGd1c2lrb3dza2kuYml6Iiwic3NpZCI6ImI0MWU1YmM2LWZiYjItNDgwZC1hOWY2LTczNmZhN2NjMWQ4MSIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6IndlYiIsImRldmljZV9pZCI6IjEzNDgzZTI4OGU1ZGQ4Yzk1OTIzNzJiZDAyYjgyMDdlIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.WXjNNAznkG7MRd3NMdMOm3AnVcLDarjmE_RqsHb97hs_9IyWK8ObxsNyyKRhVX4hKJEI2WhcLTc-RAsnXIj2_tZHsBXRevXpO4ABNyEvWenHdVxzN-_2XInrwzDxWmNPR7IKaq7p-SQrvd2g0xmf-bTG2RYWTaGAf1rBtIf28NVCJ7SZJGUo6lzBzogQ8-1nKvAzCCUDRe1cL55cV384Wlb0EyeUXvrDIhBOUlOmGh6mKNU4qaGVcX5n_eIZeVQIkR53nxrB7gL6n93Dr-IVx5ya7ZdniANu-ZTE5_91sg3deC8x8PORtf8p1qsOzkKsrxwu6sdmDrzqvZkXsDxU0ruani9u5XXgOfEMY-sF93DIV44XkPYlmF7Z1JdUlBV-6e6ZsA7owzkjd2afc1zrV4Eve9RS4YSwd6DPJYubgyoWM-z-1kfULgr_J2mGqD6hTM6TD_Cfo_3orSDYw4_9FQOitmv6EaPbcBIH_MqwWszOr3PCfkpqPSLkz3WWnHnY7geX0XHCwjm6sPqLQnFaVrqFcbWrlcH21Dvd6UVcGFkDfAqPkqZQZOYdwrzhCRh-Yk_4J8iKZsj4-uXCZdHRbTKS9vI0-OW6QHVm7akiIv2suO5q2mcN3chnMUJC0L-60ACl8mRwVmhZbV6SDXHphtVKXljs5-j5amhWVz0w-zI
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5NzksImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNTAxMTUxNTA2NCIsImVtYWlsIjoibW9pc2VzQHJleW5vbGRzLm5hbWUiLCJzc2lkIjoiZmU0YjgwODctY2MyZi00YWQyLWJhYjMtNTYwZjg3MmJlOTdkIiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoid2ViIiwiZGV2aWNlX2lkIjoiYjViMGIwYmU5NWVmNGNlZmRhYTU0NmE1ZDE3NjMyYzQiLCJicmFuZF9pZCI6MSwiYXVkIjoiY3VzdG9tZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIn0.QdKvEm88J5ULq91t0F1U1T5QbQ6wGIBG6b6D_SSTV3kbO2SW0HUmEjEwRA2MLswNJV9FctJrQ1dsFQe4aox03sIjjub9A5B_SYYPdAXMSvKRb99cAhtSSzxsiii_rdBa02688-xSUkXBoVGGK6ryAIaKLszbTr4JpgPVBJYy4vOBUkPhKnb2Qu9ty6KOInVqcj6zbg6NWT1nKTzoRq8grjHfXL6X1EyPNVfILBPKjDkY-C5gPmFF06noS-UsfJwgr9M3gzllOoEeGldTQjEselNj1KJiVFUT84SWNosUHUcos2uXg9m3pCH4ghG9mrctT65D-akbypxz7A5kr5bo6vaa9xJT8_sZZD-BUkEPJ6--qwSi9o-TUBHKqZ8STXEzd2YxgiByblJf9JuvpNBVMytGAX1CqiRCYC5fW-WnuVhJ_NV8XsKcNabxwrOcb7FJ1VU3eSbOaXL9nw1lY67hd-S45dzGc2W7fB0C5LFddf8tJ-PNL--WuCoDh7O7dznNm3mesmVa6jLo7UKjaYEOcsMSEE9BZQnf_rypgMLiI9PydwtuOqGTmcOYgcvwc72NQ0jgE1hpafwil6JegREeRjKd-H3lpLgT4bJ707bQgHFGHR4YMIAIXgIk7Mu8Nix2y8OLQxSmx6W1xBNOfZRvc3pSM8Ty_0amKYLxEKZIuRQ
                     should_delete_redis_keys:
                       summary: should delete redis keys
                       value:
                         account:
-                          name: Aleida O'Reilly
-                          email: dominica@bayer-muller.net
-                          phone_no: '8117344870'
+                          name: Gov. Stephnie Hauck
+                          email: nelda_kilback@haley.io
+                          phone_no: '6066352167'
                         secured_auth: false
                         meta:
                           code: 200
@@ -1309,14 +1313,14 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjcsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiODExNzM0NDg3MCIsImVtYWlsIjoiZG9taW5pY2FAYmF5ZXItbXVsbGVyLm5ldCIsInNzaWQiOiJmM2M2ODI2ZC00ZWY2LTRkYTUtOWE2My1jNjU3MTgwOWUwNTMiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJhbmRyb2lkIiwiZGV2aWNlX2lkIjoiMDEyYTMyMmNiODVhMDE4OGY3NmU0ODE2ZTM4ZmRmZDAiLCJicmFuZF9pZCI6MSwiYXVkIjoiY3VzdG9tZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIn0.UDY1AY3awPYGGySnrqeE4ZIBE3lvjnt-wUQftnMlAKCxmEkcsso02bUHkMi3_87B0MqpW5Nlsohu_cv-IvBtD5BoL26S5AIRoeZPun7l7v7-o-jxyPKeK-Rw7GsbXg0YX4elmuKrN_eHa_o4-qEhiyzzFinP0XZ9ZyfBiQ0i-NiOug5iHcqIpJMpQLAvxGtG0O2HaVNReRk3Y7v2DGg_pp404_Xp30R06djg1GGnJ4hz1eqJ17Y-AN1Kut4lQlISlX0bkgoCntXT1h0p0P7iUu8xlnJB2mEPNA7wZj0pxxFORenp1GZ8N6coSyzxUeKZtnIjVAt-OoOuKXHHyB1sUq7PMOHmczziTcPf7YmRuEyc6H9k9hHKr1hb5DD6PfTlAlm2AlH9R45-JeP8raYvMojuLSy6NFxS6fThfdWEXsegYV8AuJvNOXfGtkHPyABiaWH9jbyMuuZMiyiCqQ2epS9CioaChtJBI_DsJlyIqUNXsiZ31ypFSU_QFh3s4rViOJN3totdG2z9C8EpCn3Pj5Qpybfh_CzWA2ZO1Fgu8jVI5n8SipgOWETWRZLnFLdEQ55y9yhZDUuz0VcQ93mbdtV06KIB0VUCWu2Gzl9VgP_58AhqUK6v4EPUJDvXtX9Jw-JyG9_M9RXfjdEflrZhp9OJXY7XQSPDXqHJ36dyBIo
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5NzksImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNjA2NjM1MjE2NyIsImVtYWlsIjoibmVsZGFfa2lsYmFja0BoYWxleS5pbyIsInNzaWQiOiJkZjE2ZTI2Yy01MTEwLTRhNjUtYjhhZi05OGZmYjY3MDlkNTEiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJjaGF0IiwiZGV2aWNlX2lkIjoiOTNkMWU4ZTdkZWI0NTQzZWMyZTBmMjQ3Y2MyYTMzNGIiLCJicmFuZF9pZCI6MSwiYXVkIjoiY3VzdG9tZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIn0.A1abgK3LZfwsqxyXb-__0nWfcv73cFE6KR1Vj2m7QTJVEyz08zdgR-gxTVhieziwMdBCjyhBtZspVkUadHCQ-gyIobmeGXyngA51gwr43W7OdZmec9glLxgKH2YUFN83Wj2fN0tcdZ6fXBDL33C7Q8bLvWLZvzADfgjvL5pVpP26j8kQ_xFgWhm65lydpkj4EUuPfUtQ17YB_lLLICNt98K4N_kkG4sYsp9BNg8Us61v5XVfzKYIbjEjCiqssQWI9WPEIZ-Mj0eTXfhoBw9G670yvmKHEp23F7uALJWR5EmXQ8j4nwq2Fb4q4R9bT5ARIqPNSfXOydgP614XNRRqLIZEHJ-cEPg0UeRPY8wurSjz1oKU6Hh2MY2ynML_IVkj0mvItyNDjojGvHyt8ELYuRdUjqE9PJTJw_dSFQiOsNEbkuFsMsg7DUQdnShXXfe-tKDwUi71mU8KmJbWnUSLnBDa459ytIoatyrANVqEHVXxvYUmUQdGFojq__6zUAUvLACWR6nW9dFt2ZUYTRfUgZ828lDDqQQ_-hvmaL8rE3BzQKrPmI6X6ddZdnkWcz16ozR8u3sGAOxyt1DiawnRGR8O7S97C9G8idM-eZ0Dn7WGoOEE6HeFgxb6ejYugwqgu_dUJGwgP0My2LbaQrSMZaaw0f17rx5lf2KpMGEjIpQ
                     otp_sign_in:
                       summary: otp sign_in
                       value:
                         account:
-                          name: Porter Lebsack
-                          email: jermaine@ledner.co
-                          phone_no: '7300260679'
+                          name: Mrs. Rebbecca Hirthe
+                          email: enrique@lind-lemke.com
+                          phone_no: '5814196190'
                         secured_auth: true
                         meta:
                           code: 200
@@ -1325,7 +1329,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjksImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNzMwMDI2MDY3OSIsImVtYWlsIjoiamVybWFpbmVAbGVkbmVyLmNvIiwic3NpZCI6Ijk1NWNhNmNhLWU4MjMtNGFjNy05OTUyLWY3MWE1NmM3ZjhkYSIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6IndlYiIsImRldmljZV9pZCI6ImJjOWM2MDBkZGZkMzJjZjliN2QzNjlhMzRiYmQ0OGUxIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.lVRbLeFTic9PfjzfAgLA2DFfowp_f4_SMM3uWpN1uUH_koEElrMLlRgYrYR3xpRvR2cH1h8inl3GFtpgg2wlZFxR7EEIlEqFiJA-9in57KPzSgLfDvFyfjLxPodDzEvoTTkRy6IE55BS5lgGYKKqgFB_LLqPGEQvS0AXYTAeE1oolh5_suLvO1FpB3ZmBNCv9J8OXsb78yU8hpWCWm9ifvFym-f20DBMg1HX7zpJxHWBHnpB90M6Op-79vJn63cCvkEdTaVaWmKmox5CRKYzGoplfoLsKxfj3aInwl9D_yhVTMyNE9rncnpzmT7X2xfuc7mzzpgv_lLuR7QdOGDkOgRXpZnUuvkouEO7BsxGwWz0iMYS07i-GUV8_OqvWxhFSz0Cw5BiYqBxAuHkFJcDetRLfMg7FaVfv8tVen4ojtGSzKutrUBEaTGeR9EIWWw2A8pvy7n3RQtsNPengjzJeAJWvnVg37hCDpX7vnsuwtXqwYfkdx7s-4JPV6CZPfwvCYsb8IffgMCoZ4n_MFbG2FC10v7LfpEqkC1RpmHfv9N9me_6epfa5CshTN9FosvtSMEUK3Uu19OUOS22ADR_pYGgfXelHB78K2iQxsYh-Vn9FsFmyiKJPk5cBZm6eQI-7rdBYlcsT7jD5oxSoIHdOh65u7xyxxCKlWl0jnjwZwE
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODAsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNTgxNDE5NjE5MCIsImVtYWlsIjoiZW5yaXF1ZUBsaW5kLWxlbWtlLmNvbSIsInNzaWQiOiJmZTQ5MGNkYy1mYjM4LTQwOGYtYTAzYS05NDVkYmE4YzI5MmEiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJhbmRyb2lkIiwiZGV2aWNlX2lkIjoiM2QyOTFlYjBmZDlmYTM5MDMzNjA5NWEzOWNlNzNiMjIiLCJicmFuZF9pZCI6MSwiYXVkIjoiY3VzdG9tZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIn0.YMMdQWZYhK2rz9ayLxgeOwtgNJ7jo4FxurVkMO9EATkeiDWTFTT5LVc6HUx_Tl9kiaUgAr5nu--9kr_z0D8O8sMONNFhtFETkY2v01ohN6lcDCEXSmRg94Fd1z3eo_sLoYxuoCNQYoMP0P2xEZlx0s1CjkmW_fgXYopN-82gUi1CPj9c04nMoYtakaMwknOKqvUdETyDhgyP4_Na1Kd91vfig58Rto71S25GYz-l4-yTNATdHX-RDOD9voiPdO9Q3X9ifjB9Zz7j0FRCT6nj3bE2sW0DESPsDKSLGvzEmPxind5rKl9yWpoVlbk4FQzGmTxY11ph1j8yFaYuAqLC_OTYVh3VcM9yiWu4ipquxI9qSZpf88JoSzpFcKV6UkPqi_eHxB7N9mLrXWeqHKMd-ZbSkdAAIQCKrsR-rx-cAoVe5oowCYSBFeltiqbwrIdpCI_OdX0QgdiN8eopZ5oNH04ALQ5x_mFj6milswmx2s-cXvpl1wNzbQAMwenWYqGeOYaMrBtlFgXgEZgMZ0kzaF1kQ0UN2J6cqCSBPn42Im9i4ATL8MSjGs9oeFPPjQrhqx1noKTWRlXuMcPJEnVjJnB3wadrfURf1oWMSYudoPFw_5eUl6pkl6Wy7aYsVJCxrk9ISdKTybXW3MYgLRq6VM1HSze9zeRy_aeZqKQw624
                     should_not_allow_email_password_sign_in:
                       summary: should not allow email password sign_in
                       value:
@@ -1341,9 +1345,9 @@ spec:
                         enabled for customers
                       value:
                         account:
-                          name: Rufus Dach
-                          email: bertram.mayer@weissnat.info
-                          phone_no: '6469988913'
+                          name: Trey Gusikowski
+                          email: lance_schinner@smith-conroy.info
+                          phone_no: '9051549204'
                         secured_auth: false
                         meta:
                           code: 200
@@ -1352,7 +1356,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjksImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNjQ2OTk4ODkxMyIsImVtYWlsIjoiYmVydHJhbS5tYXllckB3ZWlzc25hdC5pbmZvIiwic3NpZCI6IjE5NTY0MjY3LTRhMzItNDk3OC05MGI4LWMyMGZiMjNiZWRjYyIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiJjZTJmNzhlMGE3YWZmYWE5YjQ0MWE5NGQ2ODU5YmRlYiIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.EpJQ2v7CX9h6eryxg16HtSC29Z_vd61-52_0vNuoW1xDi--hOF5S7FIUVWo4wdD9l2hDrzBBCNQnqYmlLsghzHpWy_6s9nSQUtH_XYjR-y7GaqpswxA04RojP-mChepp112vrnteF-qrNnYuFr_VXsmdhlAj2nuusZ6MghVOfH1DwPMeW5YS3Nk9WSb5DvrpfhmFJTZ70G4RVU2fCr3-sRx4lmVZYDFYFsoW5ng7jlAkEwVjxifK5baN5zHDkfK85HC4EwQBdNyUW7gmeHHJNu0r84_z-1uZ-AK0A3xHgFLUtkw6OUl0gMLTSnO6_10g191USyKSWn8TgJ8cP2U-3M3jPhw80GF-b-H6DwqO5Gmp5PLc6B8HIwB4deKD6APc9L7Cgnspol7yyfuLdkTYdq9U5diOiJf01nBQvOuiG0kY_eG_YhUIew4xnMZ_g1wDkYIaIIGU1g1539DlOG03Wc7D296cz68Gild3EZW5eTgbayQMztmFi-aYA7wLoziBghqtavHVEZk6kF2tk291nCAYV94_N2i69bZmWrtbOGQsNfBb7QbMmIUaupe2KUn20sBb2roRu6UtWQlR9H5t7apWTLOj9cMp-iVhO2RdauMbeeYroo2PUM4Jhdo3Rfmb4bP9FaFhyfYjgS5dUZt8rrBjjYmnWyVFPWkIKevVf54
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODAsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiOTA1MTU0OTIwNCIsImVtYWlsIjoibGFuY2Vfc2NoaW5uZXJAc21pdGgtY29ucm95LmluZm8iLCJzc2lkIjoiNzEwMjYwMzgtM2E1NS00Mjk5LWJjNDktMzI0NTM4YTIyMWIzIiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV9pZCI6IjdlMzc5YTFjYmYwZTA2MzYwYmJkNWJiY2FkNjUzNTcwIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.avWuDfcQKaYF-2YomuUnOd3wQTmLPrK4wHe9zIyAISk7NoNfvserexQXbhKroXRGET0RWf_BYrRkzsd1lFhqaUzIjcS_CuxL9_lDRJsk5L-pJxiQ0Y6V-QUJN2JlbDcn31FqwCt38_z8fVWhT7h4t4AyJoUD0Bye3PPZ5h5uo4PUmF4bl1PIGHf0oSn-CMWvv3szfRCFSEcYoFcGPuDqBUsavQufR8tVJ8s-EyKEZ7UjJOG4QBKo1Rb0RR-D3d9iasopFljStgb6wguRo2qK3H1QQOa9LKFJ3WdxdKtEShjnBzs20OAfKnr2j1lOoPut_DykrlYY0oQwcJmOJKANNMDx9hvnGJbn64TPlhlQSVUaG3UaUjlcsMeKE3ECdcrh571rG7n6-1Q7HxCSHItKqBJ67VHp7Fnh_QNKvRZYhrCoHoXPbX1mQd4W1HLgnJ1GBk1hk3kCUXU77XaAT0Fo3QvkDNDehPAApZnQn8Cvc2irf6FtLB5EZdl8vUtLNTD_i38-6oDg0-kWREwNr9RyNNLss8tjMlx4QXPLSqkznFyKisZFkvyE5pRR_Z8jJFXyN29XgX8qBdhgYcypk4iteq9KrYlotbGgt3LENXjRrxjHts_sAuqHMLqNHAr0akVe3m7A1U6yCNA23BUTbmbBoZmb_dC4Uh4u4uyLTq-b-pk
                     doesn't_allow_phone-password_sign-in_when_password_login_is_disabled_for_customers:
                       summary: doesn't allow phone-password sign-in when password
                         login is disabled for customers
@@ -1430,9 +1434,9 @@ spec:
                       summary: validate sign_in via link and token exists in redis
                       value:
                         account:
-                          name: Clarissa Brakus
-                          email: mercy@mraz.org
-                          phone_no: '5904042120'
+                          name: Deshawn Volkman
+                          email: bernetta.fisher@kilback.net
+                          phone_no: '7323481120'
                         source_token: wxyz
                         secured_auth: true
                         meta:
@@ -1442,7 +1446,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzAsImV4cCI6MTc3MjUzOTMzMCwic3ViIjoiNTkwNDA0MjEyMCIsImVtYWlsIjoibWVyY3lAbXJhei5vcmciLCJzc2lkIjoiYWJlZTgxNDEtZDIzYy00YWFkLWJkNWUtNzhmMWI5NTVkYzA2IiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV9pZCI6ImJlYzZhN2E5YzE4N2M1YWFlMTM3MmUxNTI0OWY1NDY0IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiIsInJlZnJlc2giOiJmYWxzZSJ9.c1HZIMUl-duU1jPPoCxoZUnndFCZ6IZ7nUxjpLbTVk2i2ak2eOIl-8zqkhY9Le2g3psd2yEWsJoSXEwledE6ROZ6kv-T3m6enLp5fybKPmtdQLaWCbAU1wrH2bl311NMSxh9EjoeqPs5qbeoeRBM15NIs_EbHdIhFBTxHcQKkONv9TinKybQvkMDRAH3HMRAkPIrdXYzpMycQi7wzsZHIvTXe_FVtxJ65GN_nuCS9DUKNgj_IQoHFJNU_yFWIih3CU-xIeSz-yaCYabxQpKI9rtfnokZABFgUwmcIQZ2qm4fIV8JH5NSfxVaVRumt7FULzaZGBnvLCYPxYf3zfVZtLLTgDd5JkO4okqGG7mOnBze9EcCo8kGQFdNZd2zdVnY2ZRpd7xd-fRLNm46FlFIlmQ2xK7boUvzry-ADOxVWzW4hGVyZL-0jlcekF3dsVYTtB3vv-Xy0UJigeFzEdfABAf9lntVmwH8fzR30skjczfjnxH1mish5-JPd0RooRmRIB5fuZ65O8VX5l8pc2vyGZePH9W1x5MgsNR9ZUlaQQXRbO0JDUaUJpRFb-cO5jcE7_iQJVOdY2_6mu_N4Uw0-sVM8z-swXEwQJDE-5Di-P8xrtkcEQY-HABzgQqvFps0EV6Z22cfOd-jWESmqoUZrQC5ycJjJUBTdMZoSmId7qI
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODEsImV4cCI6MTc3MjUzOTg4MSwic3ViIjoiNzMyMzQ4MTEyMCIsImVtYWlsIjoiYmVybmV0dGEuZmlzaGVyQGtpbGJhY2submV0Iiwic3NpZCI6ImExMGU4M2M4LWM4ODEtNDU4Ny05ZGM4LTcwMmViZjBkMWNlMSIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6ImlvcyIsImRldmljZV9pZCI6ImJlMmY1Mjg1ODc2ZjhkNWFkNWJmNTczYTY3MThlNTZhIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiIsInJlZnJlc2giOiJmYWxzZSJ9.BqnTRNJ3f7bCJEHigyTfc8teBABEU9lMGbAB26HpNWq14MPINXFDcjLa2SmumnRpu3fjiAj3H3Mv4byNfSpHDkLTIEBvoeckj25D8PsZLCl-d2xJYN32FeF9wq8lhYoFb51i4Ab8ae7jbqr-N82Zi-jeJe9XBJeUUtohBcDSSe5bzTa8HVOvMOt4tGHxQs5Fur0zl_rCNWBC1xq6pSrnLbC2b_fXkkbHMixCOF0TnnhiNPgBZ2qlhc2YJwxvPKccOMefyfWLnL6ZDGbxrZhIQixNy5LSiOtkeRMudn_25TK-osVrWwOGPS-d5KQgNUk8a7rXgAd-Grjh7_OkKfYC8vgguluP3JA2Yr0rQDfcBk_yYUg-ZubCcxFTB-tCReZrUjfuiOQwCPv8kKPFdA4dRrXRaz29uHA6lFQ53RLNw8wTN7I33IyY7ekA3ZkBiFfxUF_cfzASEipVcTMuYjfPyC_STGyoaBJdtmh8DFtv8qxSk9biQLatrrmb6B7IGLQOT5s9zt6RJOU_FSOHOPFDqvJazXHERNnSK75cmlA65r9zwy-fSHPfSg9CuDEnP0_A1Uh9iFuyDmW46qwYjsI4AEf0gGbljgdA7ADbdwqyoNrJ4-zL8EvIXFPVvrQMV7ewY2qh0iaqq0ipWKeMEnAkwlXXX7umKqxfFdBMWR9jpRE
                     should_not_allow_whatsapp_otp_login_for_invalid_phone_no:
                       summary: should not allow whatsapp_otp login for invalid phone
                         no
@@ -1458,9 +1462,9 @@ spec:
                       summary: 'sign_in: otp via whatsapp'
                       value:
                         account:
-                          name: Jim Dickens DO
-                          email: margarette.waelchi@gusikowski-hills.biz
-                          phone_no: '8856223831'
+                          name: Stanley Senger
+                          email: marshall@bins.net
+                          phone_no: '6922854951'
                         secured_auth: true
                         meta:
                           code: 200
@@ -1469,7 +1473,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzAsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiODg1NjIyMzgzMSIsImVtYWlsIjoibWFyZ2FyZXR0ZS53YWVsY2hpQGd1c2lrb3dza2ktaGlsbHMuYml6Iiwic3NpZCI6Ijk4ZDI4NmY4LWExOWItNGMxMS1iNWJmLTlkZjZlNTY4ZWE1NiIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6ImlvcyIsImRldmljZV9pZCI6ImY0OTg4MzQxMmQ0NmIwMWNkMDYzYWIwZjJmNWRkOTVhIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.g57RlIXQVTNYiy5LVm4xnt-V_fpVqqG7QrIA1Zc5zA1GQH49kgBXHxyUhzOvZtM6ut_qlphjv9oxG3BOTgDqMG-dm3CxpZ5UcIMaF3vOEui69TiK8zbANH8LnYBcMKpsSwCF9k_jA2SHTmSUCj5wShcs_GoKbd-ZejVgaYBye-cI02xTS8DE32r7NTzCXU-JU_vq6psdDTTdT4WH6rJXgppPWY-Jm60S7J9yICLtnEPxoLPX3ee5Auj11X09p-lGtZ9kqeYlnvI26rNkJMS-yEEK7zrRVT2ZhhhVoWzZ-40hjooqKQL0bPb32wtsdBHfshbftIf0y4vLssSJhHWO5ugHGk9Go40QUMDY2tNe17Q5alsPBg3b8PD4NpB_BEhpsDtJ8W7wcM1ZEtYgwoHfkqcPu7jDQF8JYsna8cTlTOc3Kp7tOQpkaFkspyLu9RmDuaQ_GBI9eGL2eOkLny2WY5H223L30tmCId9iTuCaRBxlAwXh6zuDxGWJNj7m5HidaqcK9aypb4AGgOMqYc_dTa7rmSZS_PFB5-WsXWzJ65WdSgs_uEdtk8uW3vi2798SnNu1E9x49EuUAPYlLar9CJqYNTD548IzY-J1WAcB8d2heOvU-K44NwGrx4efg8aQZRZRPlIpaXBXtM6QBmusU5Vz3ewmlwkNfr0XPAnSBJI
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODEsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNjkyMjg1NDk1MSIsImVtYWlsIjoibWFyc2hhbGxAYmlucy5uZXQiLCJzc2lkIjoiMGM4YjFmNDQtNjdlMy00YTlkLWI4NzMtMTc0NmNkNjY2MTI2IiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoid2luZG93cyIsImRldmljZV9pZCI6IjA5ZWQ2Mzg3NTY4ODU2OTVhZmZhZGFkOWU2MjE3NDEyIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.Om93cpupBiIE0e9cvkiVHB6KOF5jQhrdMO4_BOEShjIEudoivcRBARJM0kTv9PW2qMFN8LMaPYStTgLgeJ6dV-gPd3TcfMU28cIgZuVJzJAgVBVXR6PE7O5mhqW6cQFOC11OVlhkJpBsqyb6cyo5dsvsAM7Bo0W0CBNvaR5hOiw9BxD5dnOUL4c8gpONj3q7MfxyYaf0IsajomKLABeXOT_Pe55bFAYO5yie07W-I3SW1hUNQDiRYxWrDmzf6Fgq1i72Z3pfU7v5cwbUzwELadtIfi7t2QVTedNydAGDf4big6MDqiZcmENTjyGjX0a1vsen19eGOiqA6SNQKKL2LtnIwPY_dmfgzfmNu0ljwSfvgerfM8W0a8usFZj64KHyUQWOzKmakW8ZqAHmi2U5oieHKOVJVp1uTbVHc9sZBeIQIF34qJNFn0iP5TnWV-bf5E0K63JSda0lEyW2l4CpCQbtt-5AL6n1mI9i964aXlnjvjkIX-pGnacp2PK_XniptsxO35PTXgkg8a1sIsqMZkw4VBKYw8gPNQhPXajyyfcRG5Oe3OOb040ENdSvkViEfs0AqyuhqCnQekrMsw-ISVf1b_KxevphOsiR29zeiuAbr2FM9Cy5abbG1LTxTj0z9UbCO2kE9hMgRzT1Ni5ER0Hetfn2wPc4PC_f7-Fyp-Y
                     should_not_allow_otp_sign_in_if_already_signed_in_via_whatsapp_otp:
                       summary: should not allow otp sign_in if already signed in via
                         whatsapp otp
@@ -1512,9 +1516,9 @@ spec:
                         otp validation
                       value:
                         account:
-                          name: Jacob VonRueden
-                          email: johnathon@ondricka.name
-                          phone_no: '9268122823'
+                          name: Tami Upton LLD
+                          email: blair.green@gulgowski.net
+                          phone_no: '6687270099'
                         secured_auth: true
                         meta:
                           code: 200
@@ -1523,16 +1527,16 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wicGhvbmVfbm9cIjpcIjkyNjgxMjI4MjNcIixcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcIm5hbWVcIjpcIkphY29iIFZvblJ1ZWRlblwiLFwiZW1haWxcIjpcImpvaG5hdGhvbkBvbmRyaWNrYS5uYW1lXCIsXCJicmFuZF9pZFwiOjEsXCJhY3RpdmVcIjp0cnVlfSIsImlhdCI6MTc3MjUzODQzMSwiZXhwIjoxNzcyNTM4NzMxLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIiwic3luY190eXBlIjoiY3JlYXRpb24iLCJqdGkiOiIxODg4OGVhOS0zYzRkLTQzZTItODZhMi1mNjBhNjg4ODllMGIxNzcyNTM4NDMxIn0.iaunEnRHoAsOpEnys82FKUorFIjofnVyR_UuYpnBZkSrcrM9LrkXwCdbYr424lpXdAv_6eBMU6jbrURPxrmaogVX7Nw9uworUM05-RBbDcMYw6M18_nhRdE2Vk01g-3QBrGExxF1ifNPDrD3OgUUtAZVo66N548djq3b5tunh-Rj2EYMIokpNvHhs18D5BBeAtc17_5JVKYpoGpicaytYbtD-HEh4JqLByJKMzn_ddR-PJ_ZuGrdaVfQjbcXCyM_-BhZr5qyB2ccmHFStaw5cVKqj4Z7sH7uKfT-urluRxSX2YEgxI_JiVyZMuVlvpWeO5zyFlnkzeDZLZ6hFAIHkO7NUb0y6CdtWjr9gK_W3OYhE9R_dIIq7ziZgHiM0dC2fI4Koa-Uv7Cb0-MU4SIak1zselj13HJ-EBmVPXd0KcAlamFqS6RXuJ1UQjWx5J8muwZ9bwbtb3TT-qkMTdr6mo2QNPWyjZduZ7Pm63Dnyb0XUbkAsqrSgUxdAenP95oO6Kyu_4DrlqABvj9UIWNA4zzmbfYSjaAiPCvLartGowIdn-w5UO9yxn44ldfO6TodMLAJTsGmoPuah8irFM-HLf7YewO2GZkMfsAAq42RN94WXR4dXv7nTDR-n8lab3374Btp0u1TpXTfFndD9p5Lq6oOCf2qYJzBt4R5NpG43-k
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzEsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiOTI2ODEyMjgyMyIsImVtYWlsIjoiam9obmF0aG9uQG9uZHJpY2thLm5hbWUiLCJzc2lkIjoiZWYzMTgwYjctMThmMi00Nzc0LTgyYzYtNjU3YjAyNTY4MGNlIiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV9pZCI6IjMzMTc4MjkxNjk1ZmI0MmQwZWZhNDZhNjcyOTlmYzIwIiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.gdBVv0WzEJXSbRGV49QLkfOrL04t5hAMKBedoW7gk45JuNIbOVY7VIB06wlN5MC-6OPvGhBYz7Qj-elYb1ZrI0G8m_RgStXjt_Hb59dpCifuN33Dk3lE4TclDA3KThww24eNeNKMqGh8Ce5btmA6z0jY9Il1c30xSRMKPvUOKVWp_j-CLYmlA0C3cZX1M2NjoitXe2Pe3g5aQvsdRCHjVszWzRtz7lX_zFj73xMv-259n_p3hbNEA_G9s54aoUrIQooxN0C1DX41C557uPc4sOJ2xCPseuDnkpTRR6j5d3YHcdjM4UIBVU9FkeRQ0c8fMeg2bxqqsMs-gvg2x9FM6IbW5_ZdstPWtpgwFUWkh2rjf5Z4edbMNjbSi2EDzx_EQW3Uh9KL0diMDl3zfjzgoOOU2k29LiWVVxIEvKlBGHN_6D-IK_HQY4TiU3vOumecWyjHcKIY0UCq84HEHlGlOnaHlao4ksAc1yWXhiaNS0J4HRP_7ldhPBX_OAhrnnDbemurYGFHjM8mwq5YmkVZW-H70HSPAz86ghjl7-F12XxxqLjJHgEkwRuq-UlTL_CqhcOUZsnQLRMZbJjCCV8gWDITLa_cJ4dYr938nwbhrRnPGDpkfB86edY4tvWlmqz6zS1-qxlP7YVAsDf_-C0PIkBlEqvpCGWRwA_2j6WVX2w
+                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wicGhvbmVfbm9cIjpcIjY2ODcyNzAwOTlcIixcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcIm5hbWVcIjpcIlRhbWkgVXB0b24gTExEXCIsXCJlbWFpbFwiOlwiYmxhaXIuZ3JlZW5AZ3VsZ293c2tpLm5ldFwiLFwiYnJhbmRfaWRcIjoxLFwiYWN0aXZlXCI6dHJ1ZX0iLCJpYXQiOjE3NzI1Mzg5ODIsImV4cCI6MTc3MjUzOTI4MiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiIsInN5bmNfdHlwZSI6ImNyZWF0aW9uIiwianRpIjoiMzFmMjA2YWQtNjhmNy00YzVkLWI5ZWYtZWM3NDdjYzBlMDJjMTc3MjUzODk4MiJ9.BH26RyRcs2oph7G3mUJX9Mqcm6sK1pGHuXuyA-UViOpOBo3iEaQX9rr_zGitruuMZBJIVUb8shSZlu-wq1qsFo_SQafXwhAEmB-QSyx50SWu9HHiLz0v5MIle3OIvSmQW2tPlSXhmbrtsI0R0gOWU5v3hAJWve_t688PHt9keDwAEnI1sEdnmpmLKVguEle5W0-L8HPqkymcnjlz8KI8_9bVfsSguaklYnPDtm1jYII35XjT8b1f8OHMHmJm7JRHf9jD4OhmnttjC8Xz4Z8SgRf47kbMeOvHFKXBXmHHZOdjm2lFSN5GDyXnzq_a53l9WEkL_-Z10T3PYZJ6jlD8vvDenSaOo9ylqkUDJ7cXof-ch1awcoD4o_JmgJ75m3UbhBf5DPHmDEgfaX-hY2vSB-RIT24n-W81CD0xlgOiSBUhfY7wVmVFF2xvDUVKgJSu8exmbNlhfYERBaSifbCuvLG2t56mDehV1rHK2aA1wEQWBUvL4GxBxzNKxlGmHT_6MJl-BC5JCyNRn96fAAsn9G9oWV4gu1olxk0Pn2T8iuEgTc0n1mh_7RJ08d7MLi4GI-Al6KpeKonGE7zjpn2aMf8CL4WNW5DzR7x5kbQinW5CHnefAM2O0k5TRFr3Q4MnMW9eOQfAdWI5n1n7XaX4GquF8h7AMVSHFjw8rlfZ9MA
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODIsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNjY4NzI3MDA5OSIsImVtYWlsIjoiYmxhaXIuZ3JlZW5AZ3VsZ293c2tpLm5ldCIsInNzaWQiOiIxYTdlNWFiZC1mMGQzLTQ4ZjctYTgwYS1jZmNmYWRjY2YyMjUiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJjaGF0IiwiZGV2aWNlX2lkIjoiNzRkZjY4YTUyZjQ3MWU4MGQzM2ZhY2QzNzZiNmRmMzkiLCJicmFuZF9pZCI6MSwiYXVkIjoiY3VzdG9tZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIn0.aombLQbsEOBLBmt4Z10Q_alZkuMrk7oOohMI11SQw4WZKG2CXROcyLiNvjZvFC6tbCJqES23cwmgVqiG371rr0IBcayyDNCMXdFSeWJqM3PEr0DDtilpZg82Yyg3gFv_0gE3BGEiUW7eaLgf8TA39XC3YV20tkrDRPhbrYUUwxpqS_VAm4caWR35hQgoqCNGrxUQBeJUz0xV3Ntsl3A4s2WGOwY9y-l1uZ-eF7YxhGPC5JopZAR0M9xGPKF8XWEbhLjXFecdiy-2jZzeG7yobimSWolVlRtX1sF06d6bXzX5apcWvOyJbzYu5Ir06_bfWA2d5FDzGZ8UNl5yqOXiaR8-QikTUc4BbSHmhhdI-qzS-ivzWZ2i-QgbOkwfuwXFaFvINa4u42Tpqp7nbwlBu0NFCuvMkmO5jjF8Lrt1hIupbrCNgIej8jVB9rQONd_jvZfjt9Rx-3Wq18M8yXp5Fl6UKowqXI4kQTPq7JQDTFtAuCIG2kLJWNaqqH9FNIxp6fgEZ0bkZMDJlfn5IL3pwDQMWf1ZISONwEDhJE-RfRYTBQuYB9Tk8tX1Rpg5uyOq4GUgw9Uwj5EeN4PzmZKwbUklHVGJ0LihAe6ToU22YS1LfSIesjqWG1Gy0SzaqC2v8ndOQggcdZLZ2zpFyHoPOPeYpjMlLjxdMqmXkHicDFc
                     creates_a_customer_after_otp_validation,_even_with_an_empty_password:
                       summary: creates a customer after OTP validation, even with
                         an empty password
                       value:
                         account:
-                          name: Felipe Zemlak
-                          email: bobby@medhurst.io
-                          phone_no: '8671422094'
+                          name: Maud O'Keefe
+                          email: vern_koss@larson.info
+                          phone_no: '8027801000'
                         secured_auth: true
                         meta:
                           code: 200
@@ -1541,8 +1545,8 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wicGhvbmVfbm9cIjpcIjg2NzE0MjIwOTRcIixcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcIm5hbWVcIjpcIkZlbGlwZSBaZW1sYWtcIixcImVtYWlsXCI6XCJib2JieUBtZWRodXJzdC5pb1wiLFwiYnJhbmRfaWRcIjoxLFwiYWN0aXZlXCI6dHJ1ZX0iLCJpYXQiOjE3NzI1Mzg0MzEsImV4cCI6MTc3MjUzODczMSwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiIsInN5bmNfdHlwZSI6ImNyZWF0aW9uIiwianRpIjoiMzc2MzY0ZGItYzM3NS00MGExLTgyNGMtMmUwZDEwZDRiMmM0MTc3MjUzODQzMSJ9.XFr6TK57tLNrtU1vMGfc9qH7BRyyd1hwBGahc49jDBre12w0K4PE-_qtwAuEGU0W_vfF3UIwezC8qIYNBCiq98FRS1KyoHb8MzjMzt-QqofabGdKXs5G9YKeVRhSaiK6r9vHc2l74kJWJWPx6Mfgmipz9Dt1FnYboeqFvV1Bikjtbasz98iAXR_rHiUmt24MDG249l0UR_tlgyEM_Tn29dvHfS8-v4Ozn5rC-6Uss2wlPawhvWBaFN65NRLiA24_chhw8vcgmZ4FLG_avywJZNQVLIiNixOkcimULTKDcL39ZTPEiOFVvuQ-XQPXnJidAcQTp3fw8lcAB9VUO0pnjHhLMjKBQVSCnGfCu3NsSnkP0WrIvsfDc8P8FV4tOOAzcrMC05uE5PF1REkYnaLeJ_rFVoKjIz4y6vcu009Z6wG0EDDFmuYiSo_t9vIBaSU9se8_ytk7dkwiDLhUGiLUBcG-Gk1h1ZjVhN27G5hVGdmpwYmUQvS6pBYFGagJQED_h4eNTHKVTA9MPXX4xAMGnIMSI1m2r3E5AxO7BGF9h2Y6ZpWb1mpmKVeCLruPdk7CnCkP4CanRReKZx4hQSDm2g3ASlnV3SlpnHXwgUIfed_ddOsF9YsYHp4sG_wwFxzoLz0Nry0Jus82mXRbBXu9okVTjyrTZ0DlJrlL5tJtktk
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzEsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiODY3MTQyMjA5NCIsImVtYWlsIjoiYm9iYnlAbWVkaHVyc3QuaW8iLCJzc2lkIjoiNWEyZTM5OTYtMzRlMC00ZDdmLTg2NDItOWM0OTliNTgwYjRjIiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoid2luZG93cyIsImRldmljZV9pZCI6IjAyY2U0MDVlODI5YzU2ZjUwZmQ5M2Y3YWE3NTgzOGU5IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.FmKAb1StOeaoOJLLPxfdl-2L-Z6pjsnwlE_S_PJ4AuveVAz7OhiafsiVKKwBnmpu_ZMNwrbV01OaV8gNjUwFAVZUbDDN8rkQRriuhjPd4cl4luLxHIUOGgGJfNhRPPoKu3ZZ4-DvV46fcFe2X4nf5aOJD6WpAFauJjiwzUvgLDwvelJNuTWi9OQPLITvSPRK9OGCUwooJRvNGswgVEMMm6-DtJ_ng9dBh2zB4HOhADb0I4ynJWrn2vPgLxu4ipvFwnJAPOhsOKwjfagzMyckNubP4kd68mXjZbgwJiUbgLl-T5RjPiKeKAgQKM5ccxhM55t-7G13150ejxxQkeJNKn2ifg20GaumGbce6jKyWoAKIRN_Ncu1gdnqVposxRaHOLM7WBR8q4jh9fjCK3aGqr7EnQLgNhJAZ8OQ_m30Eulp7RLkqcT9TvmH-XxJVGoUJjYTf_h3dyhR-pIW1mfS-LVWUer59INF7GG0ncxxcHWaWqzBDirBshQqocPwyXc-CGh1QtjFH6miAjvbi-ofkrh-SWk7NEXErjbDOtFpnWpd80-vIErcqnTMd2r1BhYnYN-1NZCsoU0Mx55_alJrSm3lbyRKc_i-J9Vbik-yNChiyxtceIQGTlrSEUq-hjTSUnKaKDLC0yf8_UK7zhkIt9IGE6Z2G-f7-eXiz5RypT0
+                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wicGhvbmVfbm9cIjpcIjgwMjc4MDEwMDBcIixcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcIm5hbWVcIjpcIk1hdWQgTydLZWVmZVwiLFwiZW1haWxcIjpcInZlcm5fa29zc0BsYXJzb24uaW5mb1wiLFwiYnJhbmRfaWRcIjoxLFwiYWN0aXZlXCI6dHJ1ZX0iLCJpYXQiOjE3NzI1Mzg5ODIsImV4cCI6MTc3MjUzOTI4MiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiIsInN5bmNfdHlwZSI6ImNyZWF0aW9uIiwianRpIjoiNzIwYzllMjktYzZkNC00MTk2LTk4ZWYtZTJkOWQ3OGQwNjhmMTc3MjUzODk4MiJ9.i7r3-hyMYq6ZVLHehnPikjtLCiiSmKQ4cM8vvsE6f1EsoVareefnTgeDqDVL0VjWOGhRV11MAjeL3ZJnB-a_JPjI70Am4SpvkuGYLDf25vEBGArwCjvoqzcWcJC1nu6w-keJR350xgkoqNrqmcXAvrgLUan22KvrWI32dVp2ZOsRXgRevNfXxUZ8zY0MRyd5TTYIO-99MqOLM0Lqq86FMuyzU4cuihGBP5VHB84pdfS5t-s4uUVPwIzeQhc3c7kFbECYHpZJSwLIYTUEY0T3a9ZnssVM6SYyuA-1s3ANQiWODAOCEgPrsJY201FLhLbkbx7F7qwOGAx4N4RJVtQhWCrm3hsj8oTeWxE4PqHFjJ0inyUTXHU2z2JXPhJT_4E3pdbDNJXtWKB6Q-vAi-1gA3FoN0gUfx2DdLG51DwxdcwGYrzk7jIsAJrw8aXnX-_ksPSDQ_n4o6qStTfX7GjjKGgXITgzJ3jMxmQHvCdgzAsHb-TKUtuxCsOdQsAolrHSpvmbqTVTwUq5F6GDaWzQ8QSzH8P3d6qONDaTm6KV9ai3MSawamtdKnMNH_sJGpQ019PifxLeOgeYHFls636dGRSIktxH5L9mLboIxwwhEAIoB4czHb_jGvS0tVUsT-tYl8Xl_XaVPIyFUYY1CPceuS9on6PDXRfl-T5ye_ZM2fY
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODIsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiODAyNzgwMTAwMCIsImVtYWlsIjoidmVybl9rb3NzQGxhcnNvbi5pbmZvIiwic3NpZCI6IjU0OTExMGM2LTc2ZGQtNDFkNC1hZWMwLTQ2NmU3YTM3NTY3NiIsImFjY190eXBlIjoiQ3VzdG9tZXIiLCJwbGF0Zm9ybSI6ImlvcyIsImRldmljZV9pZCI6ImEyZGU4NjNlODlhNzg5MDBhMTMzNmFhYmZlYWQwNjc4IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.NmXOddusRc-IeoQcXlpubZH-b3i2LpfrT-iuv83WKnFQBRhagK3LhiagklehYhBwULGgeMWmqa_DzU_jj19L-5yHQziyN3ABi1bKE0zYfh8gI1O6rrVO-1eYcnIa89hA8Nas_7PyfIBnTkVSs9Cao2JJ5ZRfZ3Oz5rZsiaMRBb5FXZLJGNfu-2mLx6FRexRlu0WmE07Zb8hncr_4PUYPXDUt8Dq2pAyrWlkkmaAJQ8nfFXY1pCq69BY_c4AJxKRrZnznnhULH0JVfnD6VMe861uq3lph8ZGlc_VrVnKbhMpv6C5GG94EQhIyzF4Y7EH-uaBhO7svbDz-zjZIwArJLxlvgf55NJBsnTLmG0xTzp3Yv_EKHSJaZ0tQo7KAwK1U_Sju0Jr5O8ZJHq3x_Xn26Q4moraSlEWp1anvLA_KXfSEOLVG5MFUuD4-htnX5SEinqzWg4RmhvCr0d3bYEXfupX_uVFhuqCiwJoUXASOG74lAwF9HMO0PCXhl8R0eykg_5dGtsASyYO2RPAGDJxTgABnkdhtDVYGZvotEvVg6FaZxUbpybgNfl4zgOu-OJHgCNoXbN8RHfLQPpeM1n1COMDL9QECrncFZdWv0ENfzn_5ICt9igI5CsYaVKsbmKU8T0VSiplKGz2rkPmNiVljov74QWt4EYgmynh63AJqvgI
                     should_not_allow_any_authenticated_or_unauthenticated_entity_other_than_yellow_ai:
                       summary: should not allow any authenticated or unauthenticated
                         entity other than yellow_ai
@@ -1611,7 +1615,7 @@ spec:
                     should_sign_out_for_valid_jwt:
                       summary: should sign_out for valid jwt
                       value:
-                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzIsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6ImNjYWM0N2I4LTgzNWItNDg4YS1hMmRlLTc3NGQ1N2U1ZTczNDE3NzI1Mzg0MzIiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6IndpbmRvd3MiLCJkZXZpY2VfaWQiOiI2ZWI2Njg0MzZhNDgwMDAxODQ1N2YxYzAyN2RkOWY4OSIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.JlL4TXFuNW790cs3dqp0-UefFg-OX9dIvpgdc2goYVlg9dNYLWliy1LGjFGCQTTV0pogTTeyK_GuUgM85SArf7yRMyzMJBlH_xbJkicTt5ad_sqUJXv6ZDxsxLHYK7WOWxyJMJirZyLybzO_sUh0Cwbhwow-HSG5LhvhBpcAF5kfmFr15uUCUDXyHsCRHASsMvCpKmkeWgN3Oc9ok5Bt5PICXodNBORX-agfjED_whLnH9oOqoDByUHiDeKREqO8K8ZdNsxdhkcjUrWiP4if5oSV43qygvMlscH9MJLCZSeH8DcPgEaXySOoDmIs6maBTBSPivsII2OdDYzn_CmKx8uSYN9IDKARrnqZN9eIZNciOrdkcdYyNte_TcrxY91ZKHxqP7xbpecZBunHBpiSUyQvJi8-xqDHuw3Hjwfuz0Bq4v7VRja0BB_HXmNYd5GiiSPH36RSNO5FR6pDg_B0pg08ZbZUXUP9U4jwmNok_S8XHcl2kEc16kC45_vabPqF15yhovLbrrExpTNpK-JzAp6PHciXLb06dS8JN9gQwgbOh5BcKV3v4k9SGCFkZLjua0lNnN_YX-WK3jeJHjN74EG0nzgAnUFQpwHFbUi_OuV_c6HHuzvFwg7VDK3syKDTXauh7sJLKbJu-GkGGA5H1z3DU9OVJDBwm-V2E8A4LSU
+                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODMsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjgyMmY2NWU0LWE2N2EtNDNkNS05MTMyLTc1ZjZhNzUwYThiNDE3NzI1Mzg5ODMiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiJiZGI1MzhlNTRhYzljOGIwMDg0MWU0ZTBiYjhmN2QzOCIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.g7xYu4VsYsfJ3-K_QCt-HCm40qvvs5jnmwO97IRSraOsb-h4bZsnVsHuAxGAHTAlqpArg3HQlN4LP3eBe07bKBPp8MJ9OVRRHOn0ZM5rtnWEeWDOGgSGlZtPhxv64A71_ZOZ9-fPos4TEVCx7rd53VFtZjGNNrcQtvLG2yU_n62YKndirnmPIRYeQCZrEq72g9vJyRlaGeI5epNI8m5gxBBMaWcquw7jFeTjEHcYp5AajNEAt0TqvMF8kjYaPU-UbRyqNooWrao25cCC75B0q4jCMpTmOfSMc6tRyZDQRSWdglZq6Bdm-FMUZVPa36fWf3we9WhvKIkn_M2ApeFl-9RtCx_Fzy9q4sX2tc4V13ZlLLvdLFX6ldIKUtiHt6fCt18D55HOiNceSZa226cIEsi3qq5ooFdxZ3cHC27wBmDONiqfZ6rF5X-M0LbwORekGnMkXCyA-vJaHpuWvgPI4iQHDQm-Po-xIsH9jxEQV5BS1RmbAW-8qovDnpZbkcvpzUtaDl_WaksG53-l1lBefSw_6iP3Y0Hl7dDPHdsHnqn5KeUDLwhI142P6XCBdRyR2wUEgusodevtcDJ4YFuDM8zpPa4KUo6OOzSi_oXsyivGaVCoeyZk2Z3qbMwmsiFmDUrm9BVgy7GCUjR15A5KG_59AOxStK-Z7wsbvuGiyR4
                         meta:
                           code: 200
                           status: OK
@@ -1693,7 +1697,7 @@ spec:
                     should_sign_out_from_all_sessions_for_valid_jwt:
                       summary: should sign_out from all sessions for valid jwt
                       value:
-                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzIsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjRiZDUzYWViLTI4YWYtNGQzMS05Y2UwLWVmNGE0OWNjZGJiZjE3NzI1Mzg0MzIiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiJmMDAzYmJlMmY1ZmUwMmNkNmVmMWIwY2EyNWFmNTg1OCIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.WXSSwClkUQO_2mQrA32xuYZjOnQ7rnE5PQT5zMYgLZKB7XTCif1oWG_xGzbG6KQsTXoP1w-8JjTYwWJWb8UloZOmUO9k8gYjimBm7XtFjLuL28QPkmoG18aKxFad9MEL_95dGqB0rnN7_DJp5iy9bBRFSbS2P-KxsYrd6L2rLgPz8qIzHHa2eJraimLpSFfooPakeUlt3UKVZaH6wEbe5Jk56GdvJpzZ-P-79aLfUip28SylZf8p52LwGx4tSiCuD4YgiocTxWvVthh-I4kMFv0INUUUU2pvDyuF2SQXSZGzNndEQB0dzphc0x7ZRlIoo7rmAlheuZ0IXnysYUsnWo32DlN_-3S7TIIHVwljlcTaqOX-i_K25ePoZUloQ1sbfxUX5YDgIDSIox8K9hgQ9Ta0niNhn5X_VKHxoi6zDX6gGaHYiDowfhpeDnZYqydXN0AtLpP5zQB-Oi377sD3G2E1rp2PfFVoyuHcPCpPJr3vLktwWCmYdm5YMWjiexZ6XuOwglAHTfG7gc6YpszB7GjF0tYCryGzIKabapwTOcthzqi-V4rR5z9v63S7T4eCCiInvPyBBrfOtNmFzCGkQ4WzjKmSYKpvqNaj8gKjtmk4A3f7egfDCfwqjFpQJeUH2tmrXdUemwuWLtqq4CsNxMThZEVpzajsH331DHRWOY0
+                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODQsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjlmOTRiYTQ2LWNkYTAtNGU4OC05ODI5LTZhMjQwNzk2MTRlODE3NzI1Mzg5ODQiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImlvcyIsImRldmljZV9pZCI6IjQwMGNhZWYwMTFiNTA0NjRjYzQ0ODFlYjkzZjk5ZTY4IiwiYnJhbmRfaWQiOjEsImF1ZCI6ImN1c3RvbWVyIiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiJ9.PtDI-EjVw2YtRWJHWR7fi_4JjzqemgoiMWM_QBwB4AdXhZwYBefvVdGIHxCadUGkq4QR7eGyRtByjt5zNOHIsrlwnUN5PRcLB4Um5ss63MTmmGvo9Z_c7Fs3P3XvSkFeuL1wz1bmv2AHlCZ1KeCxQZQIYuZ7d-GbsThJ0GdaKy8ZuiTmnAjAbekcTzsByuEcjm13p_l2gDaKXFzKV0jiDb2Wksqlc4SgUkj8LIE1q1Eu0SuC2dZNsXyx4tVsIxDuUiYfI9EF-XE4DhfULl5jjp3bDzoai3lWZ-Cdnjr3fhIhEcbFWLvt0q9JbqJamILMkGu1HHOo7mV_Qseyw1NbWGGqoSiS-bKelsSfuBRcmPyh5S5XlcEGqA1Jn7VP44UAr_356tljo3NY6oOPvwkYpnRPUHmhlUqywWxSL9U0RiKKBUN63sdA6R_ET-Z0I6eXdwf32O7IWG7U6RILUn2jExavvKDrQCkxYatZ-wrTvJcLAXq1TxAyZsWyZrQyayzoJHc-kCHZEX0tS9gNFI6NYEy7Y6eWdGxZHe-myX0rqHVgzXOpaLMBzOBLYLwYdC3Dx31DtwhOWk4FsM_m78M8Fs5Bkp3UgIN9KFhgRniJSp_iLUxj3s8PRjHOoi8o1OAYcvyTtlN5HOrtJzC0_63iVmOSz2CJCaLKHMR3WBzV2xQ
                         meta:
                           code: 200
                           status: OK
@@ -1746,53 +1750,53 @@ spec:
                   with_invalid_email:
                     summary: with invalid email
                     value:
-                      name: Nigel Willms
+                      name: Hertha Feest
                       email: invalid_email
-                      phone_no: '6774675944'
+                      phone_no: '9793589702'
                       password: kuch_bhi
                   with_blank_password:
                     summary: with blank password
                     value:
-                      name: Wally Corkery
-                      email: napoleon.veum@reinger.org
-                      phone_no: '9164006318'
+                      name: The Hon. Gayla Christiansen
+                      email: alec_schulist@quitzon.name
+                      phone_no: '5501588558'
                       password: ''
                   with_short_password:
                     summary: with short password
                     value:
-                      name: Brittny Barton
-                      email: teofila@nicolas-kessler.co
-                      phone_no: '9345461132'
+                      name: Elane Hilpert
+                      email: harrison.schaefer@bradtke.org
+                      phone_no: '6266945119'
                       password: hell
                   should_not_create_customer_on_successful_sign_up_without_otp_validation:
                     summary: should not create customer on successful sign_up without
                       otp validation
                     value:
-                      name: Rev. Marcia Feeney
-                      email: majorie_muller@braun-weimann.org
-                      phone_no: '5691659771'
-                      password: 66f0de5a6f8ee971a893b053e492e407
+                      name: Shaniqua Hermann
+                      email: julio@runte.net
+                      phone_no: '5931226248'
+                      password: 04e59d068f02f5b4e576eb149fa437a6
                   should_not_create_customer_if_phone_number_already_exist:
                     summary: should not create customer if phone number already exist
                     value:
-                      name: Don Marvin
-                      email: jarred.torphy@barrows.io
-                      phone_no: '9590984133'
-                      password: 3d6ccd018e23dfc37d1a3a88101043e3
+                      name: Tony Ward
+                      email: joanne@conn.co
+                      phone_no: '7182058722'
+                      password: b272862b48c4b6e246eca1ebf7cb4008
                   should_not_create_customer_if_email_already_exist:
                     summary: should not create customer if email already exist
                     value:
-                      name: Eli Yost Ret.
-                      email: adolfo_reinger@purdy.com
-                      phone_no: '9306569169'
-                      password: 0f8da9b7053cfbe151bb4a4b468e4abf
+                      name: Neil Bednar
+                      email: dallas@hamill.co
+                      phone_no: '8879777748'
+                      password: 7b4c4d317b7166ea05ced83d28479f96
                   should_allow_sign_up_with_password_when_flag_is_enabled_and_without_password_when_disabled:
                     summary: should allow sign_up with password when flag is enabled
                       and without password when disabled
                     value:
-                      name: Stephenie Cummings
-                      email: emery_purdy@rutherford.biz
-                      phone_no: '8779002233'
+                      name: Sumiko Jacobs
+                      email: elvis@bernhard.co
+                      phone_no: '6237586098'
                       password: wrwrfwfwerf
           responses:
             '200':
@@ -1936,19 +1940,19 @@ spec:
                     summary: should not update email with valid JWT even if that email
                       exists for another customer
                     value:
-                      email: garth.larson@hodkiewicz-wisozk.com
+                      email: kathi.jaskolski@langosh.name
                       name: Customer 1
                   should_not_allow_changing_email_even_if_new_email_is_unique:
                     summary: should not allow changing email even if new email is
                       unique
                     value:
-                      email: rodney.kozey@kuphal.info
+                      email: lanelle.bednar@cormier.com
                       name: Customer 1
                   should_not_return_customer_token_for_invalid_birth_date_(with_valid_jwt):
                     summary: should not return customer token for invalid birth date
                       (with valid JWT)
                     value:
-                      email: cole.borer@aufderhar.biz
+                      email: shea_ernser@cronin-king.com
                       name: Customer 1
                       customer_info:
                         birthday: 1998/03/15
@@ -1956,7 +1960,7 @@ spec:
                     summary: should return customer token for valid birth date (with
                       valid JWT)
                     value:
-                      email: jeffrey.hills@wolff.info
+                      email: markus@hane-brekke.com
                       name: Customer 1
                       customer_info:
                         birthday: '1998-03-15'
@@ -2041,7 +2045,7 @@ spec:
                       summary: should return customer token for valid birth date (with
                         valid JWT)
                       value:
-                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wibmFtZVwiOlwiQ3VzdG9tZXIgMVwiLFwiZW1haWxcIjpcImplZmZyZXkuaGlsbHNAd29sZmYuaW5mb1wiLFwicGhvbmVfbm9cIjpcIjgxNTgxODMwMjVcIixcImJyYW5kX2lkXCI6MSxcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcImFjdGl2ZVwiOnRydWUsXCJiaXJ0aGRheVwiOlwiMTk5OC0wMy0xNVwifSIsImlhdCI6MTc3MjUzODQzNSwiZXhwIjoxNzcyNTM4NzM1LCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIiwic3luY190eXBlIjoidXBkYXRpb24iLCJqdGkiOiJlNDFjMzIxNS02ZjYwLTRiOTctODMyYi05NmVjZGNjZjJkOTIxNzcyNTM4NDM1In0.coX0hPzWQDP2Uhm4E1On9rp6FPXfovaKshyZF3LPnmifSv4bh2iJ_v6py4brin9JpA1z3dR8GusIPYp2Y1YWBUxFCK8MTh0bscIvG1mnfsC7MvctE9iGQ_7LIKaPpJLTgzriObtkuj5puxDbnNIUIfdhTrJ5E_kew8ksHZdmqrAxGuxtCB8EBXObp_-TjgB8Q4ZwArVa_X1ZylEpHWnzUF4B_Z8eEv6YfHxslOibsSKyYDI-UoiKf2C7QXxwMsmGmXbnNh8j0SNPVzbIIAHqv8G-iWw3bbOQLsXnuiK2jzrssSRN-d7HIhgIXflp0b3-zS40n5sidrQ1-pEjtOxOOCuAB-N1FYwxgXzEHggmZoenLJweBlQdXW2qoiYTqvy4S6lQKinl4Su72sqq6BjfryhhSiyCIMp3aGmuY57yWfUdp-q3b68ClHFNsGf_vSHB7tFccbCaxSndWFtUUpfiHZiGlYIAxyIiP6D-hltttNSZajKMwRUEBrMT21B3uBlV066PPqKJXfVmBpLy4tWUnQ7fA0vH9lS2IaiYJAufXTtM5ijCkjdQIvk-hFY5-hp8asvUrZYzsiI8kx9DST4ipC0Qml2bqxUyPdbmKztNVP4mNLoTdwj61M9t4P7kQgmVCPfPEvRY6MTzAoOSRHmGt22blSgjfRa1LKBvvoesU5o
+                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wibmFtZVwiOlwiQ3VzdG9tZXIgMVwiLFwiZW1haWxcIjpcIm1hcmt1c0BoYW5lLWJyZWtrZS5jb21cIixcInBob25lX25vXCI6XCI2NTg5MTE2NTcyXCIsXCJicmFuZF9pZFwiOjEsXCJ2ZXJpZmllZF9waG9uZVwiOnRydWUsXCJhY3RpdmVcIjp0cnVlLFwiYmlydGhkYXlcIjpcIjE5OTgtMDMtMTVcIn0iLCJpYXQiOjE3NzI1Mzg5ODYsImV4cCI6MTc3MjUzOTI4NiwiaXNzIjoiYWNjb3VudHMuYm94OC5jby5pbiIsInN5bmNfdHlwZSI6InVwZGF0aW9uIiwianRpIjoiZDc5ZTZhZjUtZjdjNS00ODRjLWFiOGItZWYwNjQ5YWZlNmQ2MTc3MjUzODk4NiJ9.JjF6UvbPRjdQGaPWpl5oKewdhy9LBWjz9-aGGAQUY-fzOdvlKgXTc58AYEEUbUlNue8dxT28LROB55EQ1-sQhbjRIeCHk-21Zn-CkqiR9hMHiUsQJF6rdP0EFtdETzZrFDBfO4nT5_DDkLq8uzXbNCrw4k8j0zXk6nJnQ1nTFGUEVIBgDuJNqqKKJpOHsdXNJYrjZoaVT7_idflLkr7YLs4hmYtiMB-ye6F26-BFEI-6CdeYCUcWMUEAgzhGXCJCb2hnumRMZGhtyjnSM-bHUesLyDa78ktcBKQhJvWWkR5MclEbzzR97NTAa30Lb3yzcV5wSrhCExLP0H8a89XCunj3FK08qdB-RGhJO1RTMMQgzWFLRJk3_2OvlD_75Lx3FKP0P9ixPT4t72Z0PhjFzoSka8j0vnE0fQPL0dmRbaXnji3e6Ci-8HdV9JTLoOj1LbcPNUzHcMlnG6trLNxB9tTJ-I48HkMurXeqInx-p0um95pBtiVHBlE0AHhsr8-zbdT3dvOV_JAqyO1SJXc9i-Flc0Wh3qK0YSuMmAOaMPVzhdtUxzgi1b2PeWze8kXkmvjET20-SnxgA7kgEpqF7Qfp3B4CCGgE-0f6DfqBGTV2u2ZOjE0U8OQogDy2MrY5V4i_0Rwdu1mAlqLFIYEdspIk9j_qxBhdowZ-fwEQ6LE
                         meta:
                           code: 200
                           status: OK
@@ -2053,7 +2057,7 @@ spec:
                       summary: should create customer_token with sync_type creation
                         if the customer is unsynced
                       value:
-                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wibmFtZVwiOlwiQ3VzdG9tZXIgMVwiLFwiZW1haWxcIjpcInNvb25Ab25kcmlja2EtaGFobi5jb1wiLFwicGhvbmVfbm9cIjpcIjczOTkzOTcyNTFcIixcImJyYW5kX2lkXCI6MSxcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcImFjdGl2ZVwiOnRydWUsXCJiaXJ0aGRheVwiOlwiMTk5OC0wMy0xNVwifSIsImlhdCI6MTc3MjUzODQzNSwiZXhwIjoxNzcyNTM4NzM1LCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIiwic3luY190eXBlIjoiY3JlYXRpb24iLCJqdGkiOiI3ZjJkY2E1Ni0xMzMxLTRlMzgtYTQ4OS1lNTRmMzZhYzBkMWQxNzcyNTM4NDM1In0.awKNNGazOyOgK7HSwu1TXqktF-S6Gayfo-Hqa54O-NE7o9fwZv64MPpUoYN_OGY2ftauoyH4Nu1vvDihB7xz0sD_G96eweqt9BwfRp__pIN6lrXsoL283CZHbJOAWbdY15GhMZl3OgLdWBoOooNp8mQOFIIoZTCrBaWOHaruj0549LzAiwywYSID1SEXFCFyHlVID-jEwK2uPpWvLoXfZT76zDm1b-F3_ipZYtl1yx_P-ljVHIbaKMxQsS9_wHrnoXyDlWKq4j-2JYmB8hF9GQ_a3nZljdIVyo0exWUzcL6evi5k3K5QG72fCgWJrvA9zuGkyJ6N9NWzQfDyUcEFxCi5zq_8wswjYcJnLJkbyjTDoxpo2K1tttpYyzm4Y8e7OdYkskMB6MQ6w0d-U9wVrvXItT58n9urESHFqr-qWyVms60n14MkWA8PrUcvLIfem_Gtfp8N8kvn895-acEkpO592aU6mbndbBuRlBUAre6B9v1zLj1dxfO9sqT-v1wxXEUkuDq8EWwUpyePqw7PRtjun3z6E35GmrIGRCUbhoUcfH76PUw7cilk06SaZz7S4WZSRKelf0LZcYMqMyEVrRUeU3gd9CcbM63qa7OUw9bq9jjqQSnYKg5hJ0IJFPjhYWtaJJcHbYyX0R8Sk4uiIG86lmQHRjcJrPIDE39fXyE
+                        customer_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpbmZvIjoie1wibmFtZVwiOlwiQ3VzdG9tZXIgMVwiLFwiZW1haWxcIjpcInJhbGVpZ2hfYmF0ekByYXRoLm9yZ1wiLFwicGhvbmVfbm9cIjpcIjkyNjc4ODIxNDdcIixcImJyYW5kX2lkXCI6MSxcInZlcmlmaWVkX3Bob25lXCI6dHJ1ZSxcImFjdGl2ZVwiOnRydWUsXCJiaXJ0aGRheVwiOlwiMTk5OC0wMy0xNVwifSIsImlhdCI6MTc3MjUzODk4NiwiZXhwIjoxNzcyNTM5Mjg2LCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIiwic3luY190eXBlIjoiY3JlYXRpb24iLCJqdGkiOiIwYTY5NmM1Ny1hZTZiLTQ0NzUtOTExZC05Zjg2NmI2N2IwZmYxNzcyNTM4OTg2In0.k0K7uol8fZr_jQJmaZCGor5Jl9HwBke960OOWGtquYbAcmWtTurI4rO7rdOWIL59QQVRot3kWhklfPXcsE006tac3e6VNx-tsyrGRmjgX8o1kF9ASqkVpWu1Gyq8V4cnuEGKrYZXf2WsSlsOUotUP5bB4uEcbWhtHNRy1LRxWB93xVpcglFItb6NWq7POGAhHTCjDrzRNX9puV4rY5FUKjynaxd5YVPPnL-tQW0YObytdVFUBaVkrTmak5cyfLbgYiBzgQwgrQguMCiIOwd3DBkEegEl4D0ZidFHgbOw8kvtx_a4yz-r8uKfa5hkK2GptS1wlq8vxl8DCkB1KIlqNsJ_JVGI4Nv7vdg46HZ-i3G3LKaiq7Tkx3IfTOkiNVc-B0YCYW5LRg4tCIF6OSC0SEMpG2RTvXBwHU49LJ9tVn-KjXZZQeAnLCWARtVUCQCRu6D1wbNnBEtHS72Va2kQtYBerIwYJvl0pSJgJaj6HXbu3WwjTbL76TGfFdE2jl8TNo9spHCqvIW5-BkCBP4LqeOunmzEMyyuAdYIb402MSG7yXp1JX4exaU5BeVS3lXR5XHpDuV_2UwQ8I4NRPOtD6Zz8umBOLls9Xxk0oHcqeUjTJMpPuQNlAc413QgvP09Y-3iDsj_r9pdTWr2Gf9LW6Xxt6pdufHTSMu-GXOpbX4
                         meta:
                           code: 200
                           status: OK
@@ -2107,32 +2111,32 @@ spec:
                     summary: should not update password with valid JWT but password
                       does not matched password confirmation
                     value:
-                      old_password: 74103e726ebb57f60d60f2d5dce24dfa
+                      old_password: 5e4800bd88fac78be39203672d880588
                       password: alpha
                       password_confirmation: beta
                   should_not_update_password_with_valid_jwt_but_password_invalid_password_length:
                     summary: should not update password with valid JWT but password
                       invalid password length
                     value:
-                      old_password: 1656d47f7cf6785aaba5870baefae451
+                      old_password: c09a8f84f14c69401ffa11de156c7047
                       password: alpha
                       password_confirmation: alpha
                   should_not_update_password_with_valid_jwt_but_password_is_empty:
                     summary: should not update password with valid JWT but password
                       is empty
                     value:
-                      old_password: d6a49bf948286cd03bde7940687eebf8
+                      old_password: ece14082c983c494bab9d4cf6d2560cc
                       password: ''
                       password_confirmation: ''
                   should_not_update_password_with_valid_jwt_but_password_is_null:
                     summary: should not update password with valid JWT but password
                       is null
                     value:
-                      old_password: '059785eed0d8827f57b33cc12b605eff'
+                      old_password: 5e4c5e47cbf3c71b225a2d5d49f36713
                   should_update_password_with_valid_jwt_and_valid_password:
                     summary: should update password with valid JWT and valid password
                     value:
-                      old_password: de70923f29a2e64e301c6ae5056a3f90
+                      old_password: d1c6b23224505b4d808ce7aed5db33ff
                       password: password
                       password_confirmation: password
           responses:
@@ -2281,7 +2285,7 @@ spec:
                   check_phone_status_v2_version_if_otp_send_limit_exceeds:
                     summary: check_phone_status_v2_version if otp send limit exceeds
                     value:
-                      phone_no: '9705730816'
+                      phone_no: '8097390857'
                   check_phone_status_v2_version_for_new_customer:
                     summary: check_phone_status_v2_version for new customer
                     value:
@@ -2290,12 +2294,12 @@ spec:
                     summary: check_phone_status_v2_version for existing customer with
                       unverified phone
                     value:
-                      phone_no: '7091943873'
+                      phone_no: '7694871209'
                   check_phone_status_v2_version_for_existing_customer_with_verified_phone:
                     summary: check_phone_status_v2_version for existing customer with
                       verified phone
                     value:
-                      phone_no: '6559082564'
+                      phone_no: '6247006538'
           responses:
             '200':
               description: check_phone_status_v2_version for existing customer with
@@ -2462,13 +2466,13 @@ spec:
             schema: {}
             examples:
               should_not_generate_unsigned_token_with_invalid_parameters:
-                value: 56cb37f68f78fd2b666449b60e787938
+                value: e202d5011f7e6dd5b11161b9fe90f710
               should_generate_unsigned_token_with_valid_parameters:
-                value: bbd4c52e922dbff0006cda9884005542
+                value: 8f72a4643d3c90e1c22f288173b70414
               returns_412_if_firebase_app_check_token_is_missing:
-                value: b2877f12-2dd1-4f67-b899-68f3eae9d95b
+                value: 327797ac-1e55-4fdb-a116-a20692ae0645
               returns_406_if_firebase_app_check_token_is_reused_more_than_allowed_(throttling):
-                value: 03102671-0164-456c-8604-09cf238e0379
+                value: 57230f84-24e7-43bb-8ac1-1876b30e91d9
           - name: platform
             in: query
             required: false
@@ -2477,7 +2481,7 @@ spec:
               should_not_generate_unsigned_token_with_invalid_parameters:
                 value: abcd
               should_generate_unsigned_token_with_valid_parameters:
-                value: chat
+                value: android
               returns_412_if_firebase_app_check_token_is_missing:
                 value: android
               returns_406_if_firebase_app_check_token_is_reused_more_than_allowed_(throttling):
@@ -2532,7 +2536,7 @@ spec:
                     should_generate_unsigned_token_with_valid_parameters:
                       summary: should generate unsigned token with valid parameters
                       value:
-                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MjgsImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjBjYjhiMjQyLWU2ZTctNDVhMy05YTU0LTQwMTcxYTdlZDY3MzE3NzI1Mzg0MjgiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImNoYXQiLCJkZXZpY2VfaWQiOiJiYmQ0YzUyZTkyMmRiZmYwMDA2Y2RhOTg4NDAwNTU0MiIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.kuWGoeiRO7r3dHNw43AiVFDU8H-PFNOx1hbMH3hRbzYs8oETCbwVU6f0lFoPeQPoFbAMPxV4GX1xLgxM15-POoKQdZGGTbOuRY3zd9H2iUmjRWW1PPr_gbLI0ybq869CkYD3wsd1xAkMnsFW3ZCWSzRHBnAOulyEagB9374efKSHZbo_WbE_FuoNuxm6lmmmydMULvudGJSQYgOdL1T6Z59nrNlkpXQWKGxI4CAduRnQei7xGgCGMuzc3tCAsxCSi9PA7RU8LjJtGMZe3rpuKZJ2P_6JLziVoVCKjgeWHjC_evEwDw2iZo4Do-iG_fO8d1FbDpVUesPDKJSRCDugbloIDHA3XMNcvKFY1JZTv39pWDK9R_cCpGybXsuXujbSZUvVF0Ov5q_V9FcLb7lXBfoX4aEysXAlo_EUNdOrvV34lkTwYGlWI8SDi1OA5tEMIBnkf1oF6csORvO_lTzN_Hn25DxaGVvn-XMj8Q_0kqrJHa9591CdvJcdpRWM8Mhzs48ehyVAgn4IXxsUadcjlhBbLBgFe7O8cVO2C1C2RCSDY0hwlFvicI59B8BPCdF7jVFBo9NQqes3wOCsxF3Nq2_N4QbiOGN65Mfy4Ar17-2ZTSQ6xbzTTTI7oxpcs5ScyzazKHSdWjFjQQmlfSJj9chVDwmytijCmbGnZN82HMs
+                        unsigned_auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5NzksImV4cCI6MTc3MjY3MDYwMCwic3NpZCI6IjU5NmM4NDA3LTYxODctNDllZC04MjE5LWM3ZDY2MGZhNDllYzE3NzI1Mzg5NzkiLCJhY2NfdHlwZSI6IkFub255bW91c0FjY291bnQiLCJwbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfaWQiOiI4ZjcyYTQ2NDNkM2M5MGUxYzIyZjI4ODE3M2I3MDQxNCIsImJyYW5kX2lkIjoxLCJhdWQiOiJjdXN0b21lciIsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.QRaO5rooZ15QsEtlZKlNyvZZVug4GkQiFVIZ1ZFZBj-s4KO0LfhLU1t5jypTqpAH20ei6XoJyXXd1kxUy0Inj3ZT1CYy9BokYiNGZDbpE-fLwu9wW-63JNATiZgIAGlThGXgPtNRqpZ9NvNZTiwq2z4B-YUYDiQWMGSsjIaoZfupkzx9bEinwNCQDQ-Yqc8lNFFn-Rl4DVDM2TkjaiuKQgqdiB3WVFoVoPX7fC7avZSpJt-syAUMxPWZ2qih5LFhDWPIDwFdPSXMY8lOQpINJQHL8Bpo3kLUlyameiojbvFvAvg-TR1-Rz60QnHP8TR8ET1HGwv_tHpCrvvV3fFKHbRyMDHqGBHJDMD1sdLDreILQDk88IGeYaa3fUT52V0zC-6DnPEnjUJJBSsYISq0yNgmG9Gg_16cky__E0dzHROSxywItCDw50EFfRRrSY7FEAwMaw8vZ88WNCr3P0d5LNQugtjDyfduGVXfMvD0P8QCBiUx7SHktc9ImZ4vnXNYcOlXpfJrPLOVUyqrYvMh1TrhWYxMK48f79g8uUzyCkAiQ4yRdPLqwHWwLlOAjTexCx5UZL-W_s6el1H1rbpdNTuzIe8swtVFL3tH6s3ylbpg_PSUfrCQzImto1FH0c3ZsCKFZflfodsNwZjhfikB3KhRs3b3uBFHWKY_wJq3bsY
                         meta:
                           code: 200
                           status: OK
@@ -3048,7 +3052,7 @@ spec:
                   should_allow_login_to_a_customer_who_has_logged_in_earlier:
                     summary: should allow login to a customer who has logged in earlier
                     value:
-                      phone_no: '5911927094'
+                      phone_no: '8193629602'
                       login_method: yellow_ai_direct
           responses:
             '200':
@@ -3108,9 +3112,9 @@ spec:
                         earlier
                       value:
                         account:
-                          name: Bart Zulauf DDS
-                          email: isabelle@lind.org
-                          phone_no: '5911927094'
+                          name: Denese Parker DC
+                          email: hiram.halvorson@lakin.net
+                          phone_no: '8193629602'
                         secured_auth: true
                         meta:
                           code: 200
@@ -3119,7 +3123,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzcsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiNTkxMTkyNzA5NCIsImVtYWlsIjoiaXNhYmVsbGVAbGluZC5vcmciLCJzc2lkIjoiYmY2ZWJhZjYtNWUwNi00MzM0LTgyMzUtZWU0ODA4MWRhZTFiIiwiYWNjX3R5cGUiOiJDdXN0b21lciIsInBsYXRmb3JtIjoieWVsbG93X2FpIiwiZGV2aWNlX2lkIjoiYjdiMmFmZTg3YzY1MWNiNzZiNWE5MmUyYWVlNjI5MDQiLCJicmFuZF9pZCI6MSwiYXVkIjpudWxsLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIn0.N6JIaVVgJtrQdpiWOvDCCYYuugqxkN3AH1mOQaZPwsHT-kOU6w20cXF6j60YfbeCk3n4J90oSqlZVbUQWhxVyg6KCo1ONBRp0c29ICJbX7boMDn86qZF8HRCgDPRYl9CzNSBGDgSs6_usbdTcRaiWf-ZSlmhgn79KQM1nlKAelvxE6jwWIbOEXsnrybNnzXdouJYFJcZ9d_1DlnD8YB-9b2Gd3jRCOMHil9SR79YV0o4W9K9NWMwDa1Xgkijekws78Geq76nUCHNxbH4nOLT1pkpYB4My7aKSoxRNG9cNNPWip2ndKJ7mTltGEyvG-cYV-VOJWzb9hfrywaqpR-hFFd60kkyXkgRfiMU4BHlAV0HMa5E0vckyvHvxudA5pgnHxyAgOtK45SNQ3xCVWHepUamXspO9a7y4R9QEMw2PbaefaCvATpA5JJqKkHExI1t5f8p467J74LZzxTDtEnz_b-j9SLQhrTO2TmtjDMppICpDFL5e6Og4TQcLROMb48AT0jOUpxQTF87MM1F8tPEZ2skaPRQ9mTAu80nQNxPxvzdxl-GlvhCOVaLiNmE8lxLdaTLh7N975re-mTD1vKiumQafKYmCrLKGc9qD_5FMYi1fE4hHm33wj9FBqbmlzYzpr_9iAY6yYTsnk4M2TDqN1yPfkahXCubfoeR_wNNx_g
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODgsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiODE5MzYyOTYwMiIsImVtYWlsIjoiaGlyYW0uaGFsdm9yc29uQGxha2luLm5ldCIsInNzaWQiOiIyMjFmZGMxOS00NmIwLTRjZTItYmVmYS04NDVhM2M3Y2ZhYTkiLCJhY2NfdHlwZSI6IkN1c3RvbWVyIiwicGxhdGZvcm0iOiJ5ZWxsb3dfYWkiLCJkZXZpY2VfaWQiOiI5NTY0Mzc2MjllMmRkMDIxNzZmNTkyMWVkYmFlNTQ0NyIsImJyYW5kX2lkIjoxLCJhdWQiOm51bGwsImlzcyI6ImFjY291bnRzLmJveDguY28uaW4ifQ.bPEp-oQGnCnslflHFQ7sjBOBGsgEuQS43V1zX3kuznlPZPw3TpGCHIgc-nFRktKC3fMdhNSuyMWGXi9ZRaUv3Of3H4262cYHCUwE3wsMDtcMmg7nFaK9Md-j5JcdMPFh0o9J1UFBshthKKvRjJD-l3ODdHDt91_qaNImHJPh7N33tdmz-syJV_HJiDmzFAekp0QThfi1qKii2iW7_e-k8W4A39uu7HsQX96Vnqey2HJpGSwBGzulJpZxeV8ZDn4sTKTZBxJvzji20HWH6i6xUAIQhQY22TgF_bDYw1C4qWMeYYrZgpnRiizdEYOz6yUg-83YYzG-EgX7PrfzwEO2uvdv5fhMMTUdKkOGTzzlAbIAc2kmUoM9NeGr5p_XvD1T4LoD3YVSikM2C00kn3DrppIgL9OwBtiPFXDepkhmKi8vEFvO5QZjuakYuIamawmd5nEkiKMvnTWR7v-vriyw7nwsS5bmGzPsj7tU01ovupZOho8CcZmKfpAQ0voscncv4vgllN1KhLhgdIExsWiNQnHwWnz3FexN32ajFTLQk-C3hhbH1mlGumb8SxdmF4m9comEL4aRrhRPDZawPFdygECdksZR6SmNx2Sv_rTzy7VDB3ePiWK29zlSAKxOMMRK3E9EmDSNayrx2ZOeA2usq5CR9tLi84CPuF6VMjHgpCs
       "/users/block_customer":
         put:
           summary: toggle_block
@@ -3145,14 +3149,14 @@ spec:
                   should_unauthorize_other_accounts_like_group_account:
                     summary: should unauthorize other accounts like group_account
                     value:
-                      phone_no: '5089994575'
+                      phone_no: '8613602812'
                       brand_id: '1'
                       reason: xyz
                   should_not_block/unblock_if_request_is_made_using_customer_token_:
                     summary: 'should not block/unblock if request is made using customer
                       token '
                     value:
-                      phone_no: '8614237886'
+                      phone_no: '7883953018'
                       reason: xyz
                       brand_id: '1'
                   should_return_if_phone_number_is_missing_in_request:
@@ -3161,7 +3165,7 @@ spec:
                   should_return_if_reason_is_missing_in_request:
                     summary: should return if reason is missing in request
                     value:
-                      phone_no: '7408449107'
+                      phone_no: '6893924484'
                       brand_id: '1'
                   should_not_block/unblock_if_request_is_made_for_unknown_customer:
                     summary: should not block/unblock if request is made for unknown
@@ -3174,21 +3178,21 @@ spec:
                     summary: should not block/unblock history if request is made for
                       invalid block/unblock reason
                     value:
-                      phone_no: '7278184413'
+                      phone_no: '6992900957'
                       brand_id: '1'
                       reason: xyz
                   should_block/unblock_history_if_request_is_made_for_valid_block/unblock_reason:
                     summary: should block/unblock history if request is made for valid
                       block/unblock reason
                     value:
-                      phone_no: '7996844979'
+                      phone_no: '9983209770'
                       brand_id: '1'
                       reason: fake customer
                   should_not_block/unblock_if_there_is_no_valid_block/unblock_reason_in_constant_mapping:
                     summary: should not block/unblock if there is no valid block/unblock
                       reason in constant mapping
                     value:
-                      phone_no: '7432354711'
+                      phone_no: '6264335938'
                       brand_id: '1'
                       reason: xyz
           responses:
@@ -3457,11 +3461,11 @@ spec:
               type: integer
             examples:
               should_not_list_reasons_if_request_is_made_using_customer_token_:
-                value: '6881839382'
+                value: '7646699145'
               should_not_return_block_history_if_request_is_made_for_unknown_customer:
                 value: '9996666787'
               should_return_block_history_if_request_is_made_using_correct_params:
-                value: '9805654687'
+                value: '8653000020'
       "/users/reset_password":
         post:
           summary: reset_password_create
@@ -3480,7 +3484,7 @@ spec:
                     summary: should not send reset_password otp on phone if user is
                       not present
                     value:
-                      email: '7027532124'
+                      email: '6392379336'
                   should_not_send_reset_password_otp_on_phone_if_limit_exceeds:
                     summary: should not send reset_password otp on phone if limit
                       exceeds
@@ -3558,7 +3562,7 @@ spec:
                     value:
                       password: qwerty
                       password_confirmation: qwerty
-                      token: '9646'
+                      token: '6603'
                       email: '1234567889'
                       org_id: '1'
                   should_not_update_reset_password_if_password_and_password_confirmation_do_not_match:
@@ -3567,7 +3571,7 @@ spec:
                     value:
                       password: qwerty
                       password_confirmation: abcdef
-                      token: '1436'
+                      token: '2208'
                       email: '1234567889'
           responses:
             '200':
@@ -3835,7 +3839,7 @@ spec:
                       summary: 'should allow sign_in initiate request for group_account
                         having entry in users table '
                       value:
-                        login_link: https://ops.box8.co.in/#?email_token=d9ffa772-4746-4234-8d60-c4e6d4857655&email=ankit.yadav@box8.in
+                        login_link: https://ops.box8.co.in/#?email_token=1aec24f9-695e-4665-983c-2221073ea2c5&email=ankit.yadav@box8.in
                         meta:
                           code: 200
                           status: OK
@@ -3847,7 +3851,7 @@ spec:
                       summary: should allow sign_in initiate request for group_account
                         having outlet_code in constant_mapping and role group_account
                       value:
-                        login_link: https://saas.box8.co.in/?email_token=6a716356-c7a6-4d0e-a190-189248aea58d&email=eatclub@box8.in
+                        login_link: https://saas.box8.co.in/?email_token=51e9d3eb-6a6e-4e0c-b36a-519dd16949e2&email=eatclub@box8.in
                         meta:
                           code: 200
                           status: OK
@@ -3859,7 +3863,7 @@ spec:
                       summary: should allow sign_in initiate request for group_account
                         not having outlet_code in constant_mapping and role group_account
                       value:
-                        login_link: https://ops.box8.co.in/#?email_token=8274d3b3-04c6-4786-a3bd-bbb8be999c88&email=mojo@eatclub.in
+                        login_link: https://ops.box8.co.in/#?email_token=166a5cb2-bb60-4613-a8ba-f6168a9c13ef&email=mojo@eatclub.in
                         meta:
                           code: 200
                           status: OK
@@ -3872,7 +3876,7 @@ spec:
                         having outlet_code in constant_mapping and role other than
                         group_account
                       value:
-                        login_link: https://ops.box8.co.in/#?email_token=2b42af06-21f5-4836-9383-8ed936a675c7&email=box8@eatclub.in
+                        login_link: https://ops.box8.co.in/#?email_token=baa10050-38f0-491b-822b-36551c2f85db&email=box8@eatclub.in
                         meta:
                           code: 200
                           status: OK
@@ -3931,7 +3935,7 @@ spec:
                       value:
                         account:
                           id: 13
-                          name: Mr. Florida Feil
+                          name: The Hon. Vance Lubowitz
                           email: ankit.yadav@box8.in
                           phone_no: '9523132308'
                           otp_secret_key:
@@ -3944,7 +3948,7 @@ spec:
                           error: false
                           version: '1.0'
                           copyright: Copyright 2015 Box8
-                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg0MzgsImV4cCI6MTc3MjY3MDYwMCwic3ViIjoicmZrZ2xyIiwiZW1haWwiOiJhbmtpdC55YWRhdkBib3g4LmluIiwic3NpZCI6IjQ1OTVlY2NlLTlkZmQtNGMxOS1iNWMwLWI1N2ExNmQyODJmNyIsInJvbGVzIjpbIm91dGxldF9tYW5hZ2VyIl0sImFjY190eXBlIjoiVXNlciIsInBsYXRmb3JtIjoicG9zIiwiZGV2aWNlX2lkIjoiMTIzNDUiLCJhdWQiOiJzYWFzX3VzZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIiwic2VjdXJlZF9hdXRoIjp0cnVlfQ.gS3HlsANto1wkOoYAg-ri4dUBvgl8AH5HaAvedGi0ap759AXm0l2dJSwj5CKF1k-LtH_63L4rEB2PMy7NabHeA7vzqdPDHsp7sNCEcHq95h2i0DKOCI-3uJo5IpvRvL_wUf3kzu_AaSANQ0tyaHjuJNQVUAkNQiPg2ocKH5HPerB7H1KyByEA3KpDRMJY-4r_rUGmlNT6TL1t6-erjKjt1y70tGxqVbSGTGV1nHDWeuiJXL4GsxTJhh_M-0VY41_25Q9SoSJsJYahSAf2QLqXojk2NEDJEu74ikvtoE_NzhyUER3xsiK0rX2CEKwUmNMY1IOxwzXpF2fzQ6dlVSYHp4AqmvGs1qNyG_PwXyM6BJhxRUl0HTFGKd6TYlU4qAQFkDBU9_LZ6MKhYC8UgtaovLqe3DD9yCqGE71j_z0r-zBjsMs8w7vQFNojKOsDfTpyzSPxuQFrhfXsY-uFit2cBtfX380NPR-Stutuf2BF82FkI77AfcuzWzAC9ZSYhd2wxZqEfH9Bo9yejYQM4oZwWDja-UN8dG4VgQoYfzXeaSnKPPi9tPSXXGJ9Z8trwjp4dJWR7dLtuKVBsI8tfVib0GEJV2KeC1xjegMGYPaRiGfOo4BEMgfffC2IADhlj3y6DBJ5ngY7s6U7bWQ5ZabAIB9-_GiwmIO2ttaVwDQnPc
+                        auth_token: eyJraWQiOiJmMmQ4NGVkMmY3MjAyNWRiZTM1YWIwNTlhOTQ1OThhOTEzNWMxZmEzNTlkMmNiNGU0MDUyMTdhNGZmNmVlZDY5IiwiYWxnIjoiUlMyNTYifQ.eyJpYXQiOjE3NzI1Mzg5ODksImV4cCI6MTc3MjY3MDYwMCwic3ViIjoiemNveHp3IiwiZW1haWwiOiJhbmtpdC55YWRhdkBib3g4LmluIiwic3NpZCI6ImNjZjE3YzNjLTU3NTQtNDMwMS1hZDlmLTkxM2NkMTQ4Mzg3YyIsInJvbGVzIjpbIm91dGxldF9tYW5hZ2VyIl0sImFjY190eXBlIjoiVXNlciIsInBsYXRmb3JtIjoicG9zIiwiZGV2aWNlX2lkIjoiMTIzNDUiLCJhdWQiOiJzYWFzX3VzZXIiLCJpc3MiOiJhY2NvdW50cy5ib3g4LmNvLmluIiwic2VjdXJlZF9hdXRoIjp0cnVlfQ.aewcZ_PqIZujNgpLXDfgKeLrzUC1sk212Oro5YaqfAmnMpksrXlpgqwAvWmdCUdAgHLRkmxIfKliNHbzz8hfmynE-5e3vuc8w4icqcq4_fyRnHLC30swN-J_sV0hnOIoJQ76HaefhIx1DPHpTr9suDRq1NeIuNHLVI9v9ICS3uUycLehpRBJBiBcvJL0H9ewhxrncgLVd0vJi6j8hPbKjv4S5HH6Du-OOl5KqtFhE_rYAehckFovPkcKRkj2oD11tUT-4U8cskCjPkA6-LlSnIgEDYhgUbhn7Y3k291wBEr7cc0uFESl11qGvVouE17y05VnE3Nb1uZoz46i1lIuLDMZRpGKdvj7hv_mNZPQnSJiPYQEBWCqnmZaMsYpbEZFuQomL9CfAjhUh_2bIVkwAVRcssQdoeEKMdfLd-hGD1u377OsoHbh0J4oZa7Xli0thnCNlzwRP6th_OpCYiZjGquUpeL79Tr9ZCNmFx6V2al3aSM25r6cmFJPxaUPTfHlwW9FA2686USUMqaTh9jCIJH10tPqTxh9LoupMQfarYxCqu0KeBtB7KMCtxRiw7mRRLPJl_cnhFL8M8bpnIcksiQTr_5SvPz1kK-AUmLlcoDIipqnzwMXpg9eOv5x6akYD_mkivmHL0Amkgill0VSsx9LEzWnaXqu1ZCLbrP_zmE
                         user_token:
             '401':
               description: should not allow sign_in initiate request with invalid
