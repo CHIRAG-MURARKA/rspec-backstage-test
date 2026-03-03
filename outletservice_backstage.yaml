@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: outlet-service-test-apis
+  name: outlet-service-gemtest-apis
   description: Api for outletservice operations.
   tags:
     - outlet-applications
