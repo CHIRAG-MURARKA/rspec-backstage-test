@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: notification-service-apis
+  description: Notification Service APIs
+  tags:
+    - notification-service
+    - auth-devops
+spec:
+  type: openapi
+  lifecycle: production
+  owner: notifications
+  definition:
+    $text: ./notificationservice_openapi.yaml

@@ -1,0 +1,1772 @@
+---
+openapi: 3.0.3
+info:
+  title: BOX8-Notifications<> Eatclub Brands APIs
+  description: API for handling push notifications, SMS, WhatsApp messages, emails,
+    and more.
+  version: 1.0.0
+servers:
+- url: http://localhost:3000
+  description: Local server
+- url: https://notification.box8.co.in
+  description: Production server
+- url: https://preprod.notification.box8.co.in
+  description: Preprod server
+- url: https://uat.notification.box8.co.in
+  description: UAT server
+security:
+- Authorize: []
+paths:
+  "/notification/v1/notifications/bulk_generate":
+    post:
+      summary: bulk_generate
+      tags:
+      - Notification::V1::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                events:
+                  type: object
+                  properties:
+                    events:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          app:
+                            type: string
+                          model:
+                            type: string
+                          context:
+                            type: string
+                          identifier:
+                            type: string
+                          email_schema:
+                            type: object
+                            properties:
+                              customer_name:
+                                type: string
+                              order_id:
+                                type: integer
+                              date:
+                                type: string
+                              time:
+                                type: string
+                              preorder_time:
+                                nullable: true
+                              date_time:
+                                type: string
+                              tracking_id:
+                                type: string
+                              customer_phone_no:
+                                type: string
+                              service_type:
+                                type: string
+                              delivery_address:
+                                type: string
+                              paid:
+                                nullable: true
+                              landmark:
+                                type: string
+                              total_payable:
+                                type: integer
+                              gross_total:
+                                type: integer
+                              taxes:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                    unit_cost:
+                                      type: number
+                                      format: float
+                                  required:
+                                  - name
+                                  - unit_cost
+                              payment_mode:
+                                type: string
+                              coupon_code:
+                                nullable: true
+                              discount:
+                                type: integer
+                              outlet_name:
+                                type: string
+                              cashback_used:
+                                type: integer
+                              order_ads:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    ad_id:
+                                      type: integer
+                                    ad_name:
+                                      type: string
+                                    url:
+                                      type: string
+                                  required:
+                                  - ad_id
+                                  - ad_name
+                                  - url
+                              added_items:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    item_name:
+                                      type: string
+                                    customizations:
+                                      type: string
+                                    item_remark:
+                                      type: string
+                                    item_quantity:
+                                      type: integer
+                                    item_unit_cost:
+                                      type: integer
+                                  required:
+                                  - item_name
+                                  - customizations
+                                  - item_remark
+                                  - item_quantity
+                                  - item_unit_cost
+                              delivery_boy_name:
+                                nullable: true
+                              delivery_boy_mobile:
+                                nullable: true
+                              delivered_at:
+                                nullable: true
+                              cancellation_text:
+                                nullable: true
+                              brand_id:
+                                type: integer
+                              cancel:
+                                nullable: true
+                              order_feedback_url:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    api_url:
+                                      type: string
+                                    image_url:
+                                      type: string
+                                  required:
+                                  - api_url
+                                  - image_url
+                              order_experience_feedback_url:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    api_url:
+                                      type: string
+                                    image_url:
+                                      type: string
+                                  required:
+                                  - api_url
+                                  - image_url
+                              receivers:
+                                type: object
+                                properties:
+                                  customer:
+                                    type: object
+                                    properties:
+                                      to:
+                                        type: array
+                                        items:
+                                          type: string
+                                      cc:
+                                        type: array
+                                        items: {}
+                                      bcc:
+                                        type: array
+                                        items: {}
+                                    required:
+                                    - to
+                                    - cc
+                                    - bcc
+                                  outlet_group:
+                                    type: object
+                                    properties:
+                                      to:
+                                        type: array
+                                        items: {}
+                                      cc:
+                                        type: array
+                                        items: {}
+                                      bcc:
+                                        type: array
+                                        items: {}
+                                    required:
+                                    - to
+                                    - cc
+                                    - bcc
+                                required:
+                                - customer
+                                - outlet_group
+                            required:
+                            - customer_name
+                            - order_id
+                            - date
+                            - time
+                            - preorder_time
+                            - date_time
+                            - tracking_id
+                            - customer_phone_no
+                            - service_type
+                            - delivery_address
+                            - paid
+                            - landmark
+                            - total_payable
+                            - gross_total
+                            - taxes
+                            - payment_mode
+                            - coupon_code
+                            - discount
+                            - outlet_name
+                            - cashback_used
+                            - order_ads
+                            - added_items
+                            - delivery_boy_name
+                            - delivery_boy_mobile
+                            - delivered_at
+                            - cancellation_text
+                            - brand_id
+                            - cancel
+                            - order_feedback_url
+                            - order_experience_feedback_url
+                            - receivers
+                        required:
+                        - app
+                        - model
+                        - context
+                        - identifier
+                        - email_schema
+              required:
+              - events
+            examples:
+              bulk_generate_with_valid_events_data_enqueues_the_bulkgenerateworker_and_returns_success_response:
+                summary: bulk_generate with valid events data enqueues the BulkGenerateWorker
+                  and returns success response
+                value:
+                  events:
+                    events:
+                    - app: Eatclub
+                      model: otp
+                      context: customer_otp
+                      identifier: d60d259f-b440-4abf-a7ed-5c108c98381d
+                      email_schema:
+                        customer_name: box8dbadmin
+                        order_id: 53
+                        date: 04-09-19
+                        time: 04:44 PM
+                        preorder_time:
+                        date_time: 04-09-19 04:44 PM
+                        tracking_id: Y1GG8N
+                        customer_phone_no: '83057777773'
+                        service_type: Delivery
+                        delivery_address: "box8 hsr, \n BOX8- Desi Meals | Order Food
+                          Online, 19th Main Road, Sector 3, HSR Layout, Bengaluru,
+                          Karnataka, India"
+                        paid:
+                        landmark: box8 hsr
+                        total_payable: 187
+                        gross_total: 178
+                        taxes:
+                        - name: SGST@2.5%
+                          unit_cost: 4.45
+                        - name: CGST@2.5%
+                          unit_cost: 4.45
+                        payment_mode: Paytm
+                        coupon_code:
+                        discount: 0
+                        outlet_name: HSR Layout
+                        cashback_used: 0
+                        order_ads:
+                        - ad_id: 1
+                          ad_name: Order ad
+                          url: http://goal.com/en
+                        added_items:
+                        - item_name: Tandoori Paneer Wrap
+                          customizations: 'Whole Wheat Wrap '
+                          item_remark: ''
+                          item_quantity: 1
+                          item_unit_cost: 178
+                        delivery_boy_name:
+                        delivery_boy_mobile:
+                        delivered_at:
+                        cancellation_text:
+                        brand_id: 1
+                        cancel:
+                        order_feedback_url:
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=1&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=1
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=2&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=2
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=3&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=3
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=4&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=4
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=5&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=5
+                        order_experience_feedback_url:
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=1&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=1
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=2&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=2
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=3&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=3
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=4&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=4
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=5&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=5
+                        receivers:
+                          customer:
+                            to:
+                            - akhlesh.dixit@eatclub.in
+                            cc: []
+                            bcc: []
+                          outlet_group:
+                            to: []
+                            cc: []
+                            bcc: []
+                    - app: Eatclub
+                      model: otp
+                      context: customer_otp
+                      identifier: d60d259f-b440-4abf-a7ed-5c108c98381d
+                      email_schema:
+                        customer_name: box8dbadmin
+                        order_id: 53
+                        date: 04-09-19
+                        time: 04:44 PM
+                        preorder_time:
+                        date_time: 04-09-19 04:44 PM
+                        tracking_id: Y1GG8N
+                        customer_phone_no: '83057777773'
+                        service_type: Delivery
+                        delivery_address: "box8 hsr, \n BOX8- Desi Meals | Order Food
+                          Online, 19th Main Road, Sector 3, HSR Layout, Bengaluru,
+                          Karnataka, India"
+                        paid:
+                        landmark: box8 hsr
+                        total_payable: 187
+                        gross_total: 178
+                        taxes:
+                        - name: SGST@2.5%
+                          unit_cost: 4.45
+                        - name: CGST@2.5%
+                          unit_cost: 4.45
+                        payment_mode: Paytm
+                        coupon_code:
+                        discount: 0
+                        outlet_name: HSR Layout
+                        cashback_used: 0
+                        order_ads:
+                        - ad_id: 1
+                          ad_name: Order ad
+                          url: http://goal.com/en
+                        added_items:
+                        - item_name: Tandoori Paneer Wrap
+                          customizations: 'Whole Wheat Wrap '
+                          item_remark: ''
+                          item_quantity: 1
+                          item_unit_cost: 178
+                        delivery_boy_name:
+                        delivery_boy_mobile:
+                        delivered_at:
+                        cancellation_text:
+                        brand_id: 1
+                        cancel:
+                        order_feedback_url:
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=1&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=1
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=2&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=2
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=3&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=3
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=4&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=4
+                        - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=5&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=5
+                        order_experience_feedback_url:
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=1&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=1
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=2&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=2
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=3&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=3
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=4&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=4
+                        - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=5&order_id=53
+                          image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=5
+                        receivers:
+                          customer:
+                            to:
+                            - akhlesh.dixit@eatclub.in
+                            cc: []
+                            bcc: []
+                          outlet_group:
+                            to: []
+                            cc: []
+                            bcc: []
+              bulk_generate_with_empty_event_data_does_not_enqueue_and_returns_empty_response:
+                summary: bulk_generate with empty event data does not enqueue and
+                  returns empty response
+                value:
+                  events: {}
+      responses:
+        '200':
+          description: enqueues the BulkGenerateWorker and returns success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                bulk_generate_with_valid_events_data_enqueues_the_bulkgenerateworker_and_returns_success_response:
+                  summary: bulk_generate with valid events data enqueues the BulkGenerateWorker
+                    and returns success response
+                  value:
+                    status: 200
+                    message: All OK
+        '204':
+          description: does not enqueue and returns empty response
+  "/notification/v1/notifications/bulk_push":
+    post:
+      summary: bulk_push
+      tags:
+      - Notification::V1::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                events:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      app:
+                        type: string
+                      model:
+                        type: string
+                      context:
+                        type: string
+                      identifier:
+                        type: string
+                      email_schema:
+                        type: object
+                        properties:
+                          customer_name:
+                            type: string
+                          order_id:
+                            type: integer
+                          date:
+                            type: string
+                          time:
+                            type: string
+                          preorder_time:
+                            nullable: true
+                          date_time:
+                            type: string
+                          tracking_id:
+                            type: string
+                          customer_phone_no:
+                            type: string
+                          service_type:
+                            type: string
+                          delivery_address:
+                            type: string
+                          paid:
+                            nullable: true
+                          landmark:
+                            type: string
+                          total_payable:
+                            type: integer
+                          gross_total:
+                            type: integer
+                          taxes:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                unit_cost:
+                                  type: number
+                                  format: float
+                              required:
+                              - name
+                              - unit_cost
+                          payment_mode:
+                            type: string
+                          coupon_code:
+                            nullable: true
+                          discount:
+                            type: integer
+                          outlet_name:
+                            type: string
+                          cashback_used:
+                            type: integer
+                          order_ads:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                ad_id:
+                                  type: integer
+                                ad_name:
+                                  type: string
+                                url:
+                                  type: string
+                              required:
+                              - ad_id
+                              - ad_name
+                              - url
+                          added_items:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                item_name:
+                                  type: string
+                                customizations:
+                                  type: string
+                                item_remark:
+                                  type: string
+                                item_quantity:
+                                  type: integer
+                                item_unit_cost:
+                                  type: integer
+                              required:
+                              - item_name
+                              - customizations
+                              - item_remark
+                              - item_quantity
+                              - item_unit_cost
+                          delivery_boy_name:
+                            nullable: true
+                          delivery_boy_mobile:
+                            nullable: true
+                          delivered_at:
+                            nullable: true
+                          cancellation_text:
+                            nullable: true
+                          brand_id:
+                            type: integer
+                          cancel:
+                            nullable: true
+                          order_feedback_url:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                api_url:
+                                  type: string
+                                image_url:
+                                  type: string
+                              required:
+                              - api_url
+                              - image_url
+                          order_experience_feedback_url:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                api_url:
+                                  type: string
+                                image_url:
+                                  type: string
+                              required:
+                              - api_url
+                              - image_url
+                          receivers:
+                            type: object
+                            properties:
+                              customer:
+                                type: object
+                                properties:
+                                  to:
+                                    type: array
+                                    items:
+                                      type: string
+                                  cc:
+                                    type: array
+                                    items: {}
+                                  bcc:
+                                    type: array
+                                    items: {}
+                                required:
+                                - to
+                                - cc
+                                - bcc
+                              outlet_group:
+                                type: object
+                                properties:
+                                  to:
+                                    type: array
+                                    items: {}
+                                  cc:
+                                    type: array
+                                    items: {}
+                                  bcc:
+                                    type: array
+                                    items: {}
+                                required:
+                                - to
+                                - cc
+                                - bcc
+                            required:
+                            - customer
+                            - outlet_group
+                        required:
+                        - customer_name
+                        - order_id
+                        - date
+                        - time
+                        - preorder_time
+                        - date_time
+                        - tracking_id
+                        - customer_phone_no
+                        - service_type
+                        - delivery_address
+                        - paid
+                        - landmark
+                        - total_payable
+                        - gross_total
+                        - taxes
+                        - payment_mode
+                        - coupon_code
+                        - discount
+                        - outlet_name
+                        - cashback_used
+                        - order_ads
+                        - added_items
+                        - delivery_boy_name
+                        - delivery_boy_mobile
+                        - delivered_at
+                        - cancellation_text
+                        - brand_id
+                        - cancel
+                        - order_feedback_url
+                        - order_experience_feedback_url
+                        - receivers
+                    required:
+                    - app
+                    - model
+                    - context
+                    - identifier
+                    - email_schema
+              required:
+              - events
+            examples:
+              bulk_push_enqueues_bulkpushworker_with_params_and_return_success_response:
+                summary: bulk_push enqueues BulkPushWorker with params and return
+                  success response
+                value:
+                  events:
+                  - app: Eatclub
+                    model: otp
+                    context: customer_otp
+                    identifier: d60d259f-b440-4abf-a7ed-5c108c98381d
+                    email_schema:
+                      customer_name: box8dbadmin
+                      order_id: 53
+                      date: 04-09-19
+                      time: 04:44 PM
+                      preorder_time:
+                      date_time: 04-09-19 04:44 PM
+                      tracking_id: Y1GG8N
+                      customer_phone_no: '83057777773'
+                      service_type: Delivery
+                      delivery_address: "box8 hsr, \n BOX8- Desi Meals | Order Food
+                        Online, 19th Main Road, Sector 3, HSR Layout, Bengaluru, Karnataka,
+                        India"
+                      paid:
+                      landmark: box8 hsr
+                      total_payable: 187
+                      gross_total: 178
+                      taxes:
+                      - name: SGST@2.5%
+                        unit_cost: 4.45
+                      - name: CGST@2.5%
+                        unit_cost: 4.45
+                      payment_mode: Paytm
+                      coupon_code:
+                      discount: 0
+                      outlet_name: HSR Layout
+                      cashback_used: 0
+                      order_ads:
+                      - ad_id: 1
+                        ad_name: Order ad
+                        url: http://goal.com/en
+                      added_items:
+                      - item_name: Tandoori Paneer Wrap
+                        customizations: 'Whole Wheat Wrap '
+                        item_remark: ''
+                        item_quantity: 1
+                        item_unit_cost: 178
+                      delivery_boy_name:
+                      delivery_boy_mobile:
+                      delivered_at:
+                      cancellation_text:
+                      brand_id: 1
+                      cancel:
+                      order_feedback_url:
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=1&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=1
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=2&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=2
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=3&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=3
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=4&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=4
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=5&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=5
+                      order_experience_feedback_url:
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=1&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=1
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=2&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=2
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=3&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=3
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=4&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=4
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=5&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=5
+                      receivers:
+                        customer:
+                          to:
+                          - akhlesh.dixit@eatclub.in
+                          cc: []
+                          bcc: []
+                        outlet_group:
+                          to: []
+                          cc: []
+                          bcc: []
+                  - app: Eatclub
+                    model: otp
+                    context: customer_otp
+                    identifier: d60d259f-b440-4abf-a7ed-5c108c98381d
+                    email_schema:
+                      customer_name: box8dbadmin
+                      order_id: 53
+                      date: 04-09-19
+                      time: 04:44 PM
+                      preorder_time:
+                      date_time: 04-09-19 04:44 PM
+                      tracking_id: Y1GG8N
+                      customer_phone_no: '83057777773'
+                      service_type: Delivery
+                      delivery_address: "box8 hsr, \n BOX8- Desi Meals | Order Food
+                        Online, 19th Main Road, Sector 3, HSR Layout, Bengaluru, Karnataka,
+                        India"
+                      paid:
+                      landmark: box8 hsr
+                      total_payable: 187
+                      gross_total: 178
+                      taxes:
+                      - name: SGST@2.5%
+                        unit_cost: 4.45
+                      - name: CGST@2.5%
+                        unit_cost: 4.45
+                      payment_mode: Paytm
+                      coupon_code:
+                      discount: 0
+                      outlet_name: HSR Layout
+                      cashback_used: 0
+                      order_ads:
+                      - ad_id: 1
+                        ad_name: Order ad
+                        url: http://goal.com/en
+                      added_items:
+                      - item_name: Tandoori Paneer Wrap
+                        customizations: 'Whole Wheat Wrap '
+                        item_remark: ''
+                        item_quantity: 1
+                        item_unit_cost: 178
+                      delivery_boy_name:
+                      delivery_boy_mobile:
+                      delivered_at:
+                      cancellation_text:
+                      brand_id: 1
+                      cancel:
+                      order_feedback_url:
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=1&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=1
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=2&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=2
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=3&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=3
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=4&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=4
+                      - api_url: http://localhost:3000/call_center/customer/order_feedback_mail?food_rating=5&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/food_rating?order_id=53&pos=5
+                      order_experience_feedback_url:
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=1&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=1
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=2&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=2
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=3&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=3
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=4&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=4
+                      - api_url: http://localhost:3000/call_center/customer/order_exp_feedback_mail?exp_rating=5&order_id=53
+                        image_url: http://localhost:3000/dynamic_emails/service_rating?order_id=53&pos=5
+                      receivers:
+                        customer:
+                          to:
+                          - akhlesh.dixit@eatclub.in
+                          cc: []
+                          bcc: []
+                        outlet_group:
+                          to: []
+                          cc: []
+                          bcc: []
+      responses:
+        '200':
+          description: enqueues BulkPushWorker with params and return success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                bulk_push_enqueues_bulkpushworker_with_params_and_return_success_response:
+                  summary: bulk_push enqueues BulkPushWorker with params and return
+                    success response
+                  value:
+                    status: 200
+                    message: All OK
+  "/notification/v1/notifications/direct_generate":
+    post:
+      summary: direct_generate
+      tags:
+      - Notification::V1::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                template_id:
+                  type: integer
+                variables:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+              required:
+              - template_id
+              - variables
+            examples:
+              direct_generate_when_template_id_is_missing_returns_400_with_missing_template_id:
+                summary: direct_generate when template_id is missing returns 400 with
+                  missing_template_id
+                value:
+                  variables:
+                    name: User
+              direct_generate_when_template_does_not_exist_or_is_inactive_returns_400_with_template_missing_message:
+                summary: direct_generate when template does not exist or is inactive
+                  returns 400 with template missing message
+                value:
+                  template_id: 9999
+                  variables:
+                    name: User
+              direct_generate_when_required_variables_are_missing_returns_400_with_missing_variables_message:
+                summary: direct_generate when required variables are missing returns
+                  400 with missing variables message
+                value:
+                  template_id: 3
+                  variables: {}
+              direct_generate_when_all_inputs_are_valid_enqueues_directgenerateworker_and_returns_200:
+                summary: direct_generate when all inputs are valid enqueues DirectGenerateWorker
+                  and returns 200
+                value:
+                  template_id: 4
+                  variables:
+                    name: User
+      responses:
+        '200':
+          description: enqueues DirectGenerateWorker and returns 200
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                      status:
+                        type: string
+                      message:
+                        type: string
+                      error:
+                        type: boolean
+                      version:
+                        type: string
+                      copyright:
+                        type: string
+                    required:
+                    - code
+                    - status
+                    - message
+                    - error
+                    - version
+                    - copyright
+                required:
+                - meta
+              examples:
+                direct_generate_when_template_id_is_missing_returns_400_with_missing_template_id:
+                  summary: direct_generate when template_id is missing returns 400
+                    with missing_template_id
+                  value:
+                    meta:
+                      code: 400
+                      status: Not OK
+                      message: Missing template_id
+                      error: true
+                      version: 'translation missing: en.v1'
+                      copyright: 'translation missing: en.copyright'
+                direct_generate_when_template_does_not_exist_or_is_inactive_returns_400_with_template_missing_message:
+                  summary: direct_generate when template does not exist or is inactive
+                    returns 400 with template missing message
+                  value:
+                    meta:
+                      code: 400
+                      status: Not OK
+                      message: Template missing or inactive
+                      error: true
+                      version: 'translation missing: en.v1'
+                      copyright: 'translation missing: en.copyright'
+                direct_generate_when_required_variables_are_missing_returns_400_with_missing_variables_message:
+                  summary: direct_generate when required variables are missing returns
+                    400 with missing variables message
+                  value:
+                    meta:
+                      code: 400
+                      status: Not OK
+                      message: Missing required variables
+                      error: true
+                      version: 'translation missing: en.v1'
+                      copyright: 'translation missing: en.copyright'
+                direct_generate_when_all_inputs_are_valid_enqueues_directgenerateworker_and_returns_200:
+                  summary: direct_generate when all inputs are valid enqueues DirectGenerateWorker
+                    and returns 200
+                  value:
+                    meta:
+                      code: 200
+                      status: OK
+                      message: All OK
+                      error: false
+                      version: 'translation missing: en.v1'
+                      copyright: 'translation missing: en.copyright'
+  "/notification/v1/notifications/generate":
+    post:
+      summary: generate
+      tags:
+      - Notification::V1::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                context:
+                  type: string
+                app:
+                  type: string
+                variables:
+                  type: object
+                  properties:
+                    amount:
+                      type: number
+                      format: float
+                    balance:
+                      type: number
+                      format: float
+                    customer_name:
+                      type: string
+                    reason:
+                      type: string
+                  required:
+                  - amount
+                  - balance
+                  - customer_name
+                  - reason
+                receivers:
+                  type: object
+                  properties:
+                    phone_nos:
+                      type: object
+                      properties:
+                        customer:
+                          type: array
+                          items:
+                            type: string
+                        delivery_boy:
+                          type: array
+                          items:
+                            type: string
+                      required:
+                      - customer
+                      - delivery_boy
+                    emails:
+                      type: object
+                      properties:
+                        customer:
+                          type: array
+                          items:
+                            type: string
+                        outlet_group:
+                          type: array
+                          items: {}
+                        call_center:
+                          type: array
+                          items: {}
+                        bcc:
+                          type: array
+                          items: {}
+                      required:
+                      - customer
+                      - outlet_group
+                      - call_center
+                      - bcc
+                    web_tokens:
+                      type: object
+                      properties:
+                        customer:
+                          type: array
+                          items:
+                            type: string
+                      required:
+                      - customer
+                    mobile_tokens:
+                      type: object
+                      properties:
+                        customer:
+                          type: object
+                          properties:
+                            android:
+                              type: array
+                              items:
+                                type: string
+                            ios:
+                              type: array
+                              items:
+                                type: string
+                          required:
+                          - android
+                          - ios
+                        delivery_boy:
+                          type: object
+                          properties:
+                            android:
+                              type: array
+                              items:
+                                type: string
+                          required:
+                          - android
+                      required:
+                      - customer
+                      - delivery_boy
+                    pos_channels:
+                      type: object
+                      properties:
+                        outlet_group:
+                          type: array
+                          items: {}
+                      required:
+                      - outlet_group
+                  required:
+                  - phone_nos
+                  - emails
+                  - web_tokens
+                  - mobile_tokens
+                  - pos_channels
+                identifier:
+                  type: string
+                email_schema:
+                  type: object
+                  properties:
+                    payment_mode:
+                      type: string
+                    receivers:
+                      type: object
+                      properties:
+                        customer:
+                          type: object
+                          properties:
+                            to:
+                              type: array
+                              items:
+                                type: string
+                            cc:
+                              type: array
+                              items: {}
+                            bcc:
+                              type: array
+                              items: {}
+                          required:
+                          - to
+                          - cc
+                          - bcc
+                        outlet_group:
+                          type: object
+                          properties:
+                            to:
+                              type: array
+                              items: {}
+                            cc:
+                              type: array
+                              items: {}
+                            bcc:
+                              type: array
+                              items: {}
+                          required:
+                          - to
+                          - cc
+                          - bcc
+                      required:
+                      - customer
+                      - outlet_group
+                  required:
+                  - payment_mode
+                  - receivers
+                event_schema:
+                  type: object
+                  properties:
+                    code:
+                      type: integer
+                    receivers:
+                      type: object
+                      properties:
+                        phone_nos:
+                          type: object
+                          properties:
+                            customer:
+                              type: array
+                              items:
+                                type: string
+                            delivery_boy:
+                              type: array
+                              items: {}
+                          required:
+                          - customer
+                          - delivery_boy
+                        mobile_tokens:
+                          type: object
+                          properties:
+                            customer:
+                              type: object
+                              properties:
+                                android:
+                                  type: array
+                                  items:
+                                    type: string
+                                ios:
+                                  type: array
+                                  items: {}
+                              required:
+                              - android
+                              - ios
+                            delivery_boy:
+                              type: object
+                              properties:
+                                android:
+                                  type: array
+                                  items: {}
+                              required:
+                              - android
+                          required:
+                          - customer
+                          - delivery_boy
+                        web_tokens:
+                          type: object
+                          properties:
+                            customer:
+                              type: array
+                              items: {}
+                          required:
+                          - customer
+                      required:
+                      - phone_nos
+                      - mobile_tokens
+                      - web_tokens
+                  required:
+                  - code
+                  - receivers
+              required:
+              - model
+              - context
+              - app
+            examples:
+              generate_with_valid_jwt:
+                summary: generate with valid JWT
+                value:
+                  model: model
+                  context: context
+                  app: cow
+                  variables:
+                    amount: 123.0
+                    balance: 200.0
+                    customer_name: Manthan
+                    reason: signup
+                  receivers:
+                    phone_nos:
+                      customer:
+                      - '9004485805'
+                      delivery_boy:
+                      - '9899111069'
+                    emails:
+                      customer:
+                      - mntdamania@gmail.com
+                      - ansraghav100@gmail.com
+                      outlet_group: []
+                      call_center: []
+                      bcc: []
+                    web_tokens:
+                      customer:
+                      - eZ7v7ieJr-k:APA91bG-1pUUGyS40etoGd2Te-rIaRGJ3qFnNAIUEWAHt0V5Dqy-b2GG9bmOTBqKsM8UHn-2m6os6tt-ILo-pVig-a3aNoQsKxLWRk1p4rlddplELnRcTBFerN-NVvl6DSsrU7zFzT20
+                    mobile_tokens:
+                      customer:
+                        android:
+                        - dKzU6cjgWVQ:APA91bFWsiEXDovCjSdKkzI54N9l4QiXJaqmbRyxZLHgB_cqTY-yUQ6uaugc1NTmO6b6xsu2hfh9E8_fx0PVD6yShP6D_vCSzkbpgwBGMll-6WMufzc2JWNOsgRcwDACONT6pUnynuZk
+                        - dXDqhZ5xDa4:APA91bEvMsTCuzSvZdeOvsHR4T2mgoToKmr9ffn0ybeCydFvrXD0E2Se0VdW7lhqiJ7bqrz78SjT1JagzyjM1qH66V6LCR61jNjkBAKs7EHDY1-gU2sMOMiOI3MhJGGsY8BOXAE2O1e6
+                        ios:
+                        - d7ZPso3XiyI:APA91bGEbAQpNpdfComPu2_ZKmdoR_IoL-ypz6MxOjBjL7e4IkQBBH7sPv9PzckDEpDyN_R5P4gGxCGiXlDvh6C5xUqmr9p_oI8ZzUXoy0LCp7CquRmjeNQyG8mE9UuaV1H703vgs3XO
+                      delivery_boy:
+                        android:
+                        - c0jAdHASXO0:APA91bGp2qG2vSV6kP0lhITSL8uCaR7ckwCInGoze90e6pPD0Rfqsa382_eWuBkv6e0itNVw6jOdDYXmAWMdO9xYUTxFgmIcbA1eVX4YmuUSlTJ4Iqfax2FCqALEkr0PeVvMp2bcYWEq
+                    pos_channels:
+                      outlet_group: []
+              generate_with_valid_jwt_&_email_schema:
+                summary: generate with valid JWT & email_schema
+                value:
+                  model: model
+                  context: context
+                  app: cow
+                  identifier: d60d259f-b440-4abf-a7ed-5c108c98381d
+                  email_schema:
+                    payment_mode: Paytm
+                    receivers:
+                      customer:
+                        to:
+                        - iliaskhan57@gmail.com
+                        cc: []
+                        bcc: []
+                      outlet_group:
+                        to: []
+                        cc: []
+                        bcc: []
+              generate_with_valid_jwt_&_event_schema:
+                summary: generate with valid JWT & event_schema
+                value:
+                  model: model
+                  context: context
+                  app: cow
+                  event_schema:
+                    code: 2345
+                    receivers:
+                      phone_nos:
+                        customer:
+                        - '8240485828'
+                        delivery_boy: []
+                      mobile_tokens:
+                        customer:
+                          android:
+                          - fNh4QLabRzaBOqf9Pr6KMu:APA91bHxQxbsUvuUrMLaolWMbY_s_3zovsRjuYRlLKnE26Wf01c-7-FAKiGAx1FEgXQyvPXGUCyTdhwHIorhwwOAjBh8h6hrQFbnBkTc3mz-PyLXSHoCRpPJP3gvF5QkeKPLyxHev0rn,
+                            dZSlLmsETdGCzKksCYv0EK:APA91bHq966WXnKV2bwmyPerCfyUpjsY1xQ2-RwnpVv8zwdk4itc_kPn86eWIl3dq7eTeBmo-YzRzqDyggiQz_REon5CW0W3OODS0K_ly0TJP8c7evcFmJq2QFs6De0hxPx2ET8jzjr4
+                          ios: []
+                        delivery_boy:
+                          android: []
+                      web_tokens:
+                        customer: []
+      responses:
+        '200':
+          description: with valid JWT & event_schema
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                generate_with_valid_jwt:
+                  summary: generate with valid JWT
+                  value:
+                    status: 200
+                    message: All OK
+                generate_with_valid_jwt_&_email_schema:
+                  summary: generate with valid JWT & email_schema
+                  value:
+                    status: 200
+                    message: All OK
+                generate_with_valid_jwt_&_event_schema:
+                  summary: generate with valid JWT & event_schema
+                  value:
+                    status: 200
+                    message: All OK
+  "/notification/v1/notifications/namespace_configuration":
+    put:
+      summary: namespace_configuration
+      tags:
+      - Notification::V1::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                config:
+                  type: object
+                  properties:
+                    namespace:
+                      type: string
+                    user:
+                      type: string
+                  required:
+                  - namespace
+                  - user
+              required:
+              - config
+            examples:
+              namespace_configuration_with_valid_config_and_existing_namespace_updates_existing_namespace_config_and_returns_success:
+                summary: namespace_configuration with valid config and existing namespace
+                  updates existing namespace config and returns success
+                value:
+                  config:
+                    namespace: test_namespace
+                    user: '123'
+              namespace_configuration_with_valid_config_and_new_namespace_creates_new_namespace_with_config_and_returns_success:
+                summary: namespace_configuration with valid config and new namespace
+                  creates new namespace with config and returns success
+                value:
+                  config:
+                    namespace: test_namespace
+                    user: '123'
+              namespace_configuration_when_config_validation_fails_returns_400_invalid_body:
+                summary: namespace_configuration when config validation fails returns
+                  400 Invalid Body
+                value:
+                  config:
+                    namespace: test_namespace
+                    user: '123'
+      responses:
+        '200':
+          description: returns 400 Invalid Body
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                namespace_configuration_with_valid_config_and_existing_namespace_updates_existing_namespace_config_and_returns_success:
+                  summary: namespace_configuration with valid config and existing
+                    namespace updates existing namespace config and returns success
+                  value:
+                    status: 200
+                    message: All OK
+                namespace_configuration_with_valid_config_and_new_namespace_creates_new_namespace_with_config_and_returns_success:
+                  summary: namespace_configuration with valid config and new namespace
+                    creates new namespace with config and returns success
+                  value:
+                    status: 200
+                    message: All OK
+                namespace_configuration_when_config_validation_fails_returns_400_invalid_body:
+                  summary: namespace_configuration when config validation fails returns
+                    400 Invalid Body
+                  value:
+                    status: 400
+                    message: Invalid Body
+  "/notification/v2/notifications/direct_generate":
+    post:
+      summary: direct_generate
+      tags:
+      - Notification::V2::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                param:
+                  type: string
+              required:
+              - param
+            examples:
+              direct_generate_enqueues_direct_generate_worker_and_return_200:
+                summary: direct_generate enqueues direct generate worker and return
+                  200
+                value:
+                  param: value
+      responses:
+        '200':
+          description: enqueues direct generate worker and return 200
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                direct_generate_enqueues_direct_generate_worker_and_return_200:
+                  summary: direct_generate enqueues direct generate worker and return
+                    200
+                  value:
+                    status: 200
+                    message: All OK
+  "/notification/v2/notifications/direct_generate_push":
+    post:
+      summary: direct_generate_push
+      tags:
+      - Notification::V2::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                template_id:
+                  type: integer
+                raw:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      tokens:
+                        type: array
+                        items:
+                          type: string
+                      variables:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                          message:
+                            type: string
+                        required:
+                        - title
+                    required:
+                    - tokens
+                    - variables
+              required:
+              - raw
+            examples:
+              "#direct_generate_push_when_request_is_valid_returns_200_and_enqueues_the_job":
+                summary: "#direct_generate_push when request is valid returns 200
+                  and enqueues the job"
+                value:
+                  template_id: 5
+                  raw:
+                  - tokens:
+                    - token1
+                    variables:
+                      title: test1
+                      message: hello test1
+              "#direct_generate_push_when_template_id_is_missing_returns_400":
+                summary: "#direct_generate_push when template_id is missing returns
+                  400"
+                value:
+                  raw:
+                  - tokens:
+                    - token1
+                    variables:
+                      title: test1
+                      message: hello test1
+              "#direct_generate_push_when_template_does_not_exist_returns_400":
+                summary: "#direct_generate_push when template does not exist returns
+                  400"
+                value:
+                  template_id: 999
+                  raw:
+                  - tokens:
+                    - token1
+                    variables:
+                      title: test1
+                      message: hello test1
+              "#direct_generate_push_when_variables_are_missing_returns_400_for_missing_required_variables":
+                summary: "#direct_generate_push when variables are missing returns
+                  400 for missing required variables"
+                value:
+                  template_id: 5
+                  raw:
+                  - tokens:
+                    - token1
+                    variables:
+                      title: Only title
+      responses:
+        '200':
+          description: returns 400 for missing required variables
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                "#direct_generate_push_when_request_is_valid_returns_200_and_enqueues_the_job":
+                  summary: "#direct_generate_push when request is valid returns 200
+                    and enqueues the job"
+                  value:
+                    status: 200
+                    message: All OK
+                "#direct_generate_push_when_template_id_is_missing_returns_400":
+                  summary: "#direct_generate_push when template_id is missing returns
+                    400"
+                  value:
+                    status: 400
+                    message: Missing template_id
+                "#direct_generate_push_when_template_does_not_exist_returns_400":
+                  summary: "#direct_generate_push when template does not exist returns
+                    400"
+                  value:
+                    status: 400
+                    message: Template doesn't exist
+                "#direct_generate_push_when_variables_are_missing_returns_400_for_missing_required_variables":
+                  summary: "#direct_generate_push when variables are missing returns
+                    400 for missing required variables"
+                  value:
+                    status: 400
+                    message: Missing required variables
+  "/notification/v2/notifications/namespace_configuration":
+    put:
+      summary: namespace_configuration
+      tags:
+      - Notification::V2::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                config:
+                  type: object
+                  properties:
+                    namespace:
+                      type: string
+                    user:
+                      type: string
+                    config_file:
+                      type: object
+                      properties:
+                        topic_schema:
+                          type: object
+                          properties:
+                            ns1:
+                              type: object
+                              properties:
+                                new_key:
+                                  type: string
+                              required:
+                              - new_key
+                            new_ns:
+                              type: object
+                              properties:
+                                key:
+                                  type: string
+                              required:
+                              - key
+                      required:
+                      - topic_schema
+                  required:
+                  - namespace
+                dev_namespace_update:
+                  type: boolean
+            examples:
+              namespace_configuration_when_params_missing_return_400_with_invalid_body_message:
+                summary: namespace_configuration when params missing return 400 with
+                  invalid body message
+                value: {}
+              namespace_configuration_when_namespace_is_updated_updates_namespace_and_return_200:
+                summary: namespace_configuration when namespace is updated updates
+                  namespace and return 200
+                value:
+                  config:
+                    namespace: test
+                    user: '123'
+                  dev_namespace_update: true
+              namespace_configuration_when_namespace_exists_for_given_topic_schema_merges_topic_schema_and_updates_existing_changes:
+                summary: namespace_configuration when namespace exists for given topic_schema
+                  merges topic_schema and updates existing changes
+                value:
+                  config:
+                    namespace: ns1
+                    config_file:
+                      topic_schema:
+                        ns1:
+                          new_key: value2
+              namespace_configuration_when_namespace_does_not_exist_creates_new_namespace_with_given_config:
+                summary: namespace_configuration when namespace does not exist creates
+                  new namespace with given config
+                value:
+                  config:
+                    namespace: new_ns
+                    config_file:
+                      topic_schema:
+                        new_ns:
+                          key: val
+      responses:
+        '200':
+          description: creates new namespace with given config
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                namespace_configuration_when_params_missing_return_400_with_invalid_body_message:
+                  summary: namespace_configuration when params missing return 400
+                    with invalid body message
+                  value:
+                    status: 400
+                    message: Invalid Body
+                namespace_configuration_when_namespace_is_updated_updates_namespace_and_return_200:
+                  summary: namespace_configuration when namespace is updated updates
+                    namespace and return 200
+                  value:
+                    status: 200
+                    message: Namespace Updated
+                namespace_configuration_when_namespace_exists_for_given_topic_schema_merges_topic_schema_and_updates_existing_changes:
+                  summary: namespace_configuration when namespace exists for given
+                    topic_schema merges topic_schema and updates existing changes
+                  value:
+                    status: 200
+                    message: All OK
+                namespace_configuration_when_namespace_does_not_exist_creates_new_namespace_with_given_config:
+                  summary: namespace_configuration when namespace does not exist creates
+                    new namespace with given config
+                  value:
+                    status: 200
+                    message: All OK
+  "/notification/v2/notifications/upload_campaign_csv":
+    post:
+      summary: upload_campaign_csv
+      tags:
+      - Notification::V2::Notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                campaign_id:
+                  type: string
+                upload_file_path:
+                  type: string
+                uploaded_by:
+                  type: string
+                push_notification_data:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    body:
+                      type: string
+                  required:
+                  - title
+                  - body
+              required:
+              - campaign_id
+              - upload_file_path
+              - uploaded_by
+              - push_notification_data
+            examples:
+              "#upload_campaign_csv_uploads_csv_and_updates_direct_generate_content":
+                summary: "#upload_campaign_csv uploads CSV and updates direct_generate
+                  content"
+                value:
+                  campaign_id: '15'
+                  upload_file_path: pushes_2025/backend_test.csv
+                  uploaded_by: test.user@eatclub.in
+                  push_notification_data:
+                    title: 'api call '
+                    body: "have delicious food instead?\U0001F60B\n₹200 Off + Free
+                      Delivery!"
+      responses:
+        '200':
+          description: uploads CSV and updates direct_generate content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+              examples:
+                "#upload_campaign_csv_uploads_csv_and_updates_direct_generate_content":
+                  summary: "#upload_campaign_csv uploads CSV and updates direct_generate
+                    content"
+                  value:
+                    status: 200
+                    message: All OK
+components:
+  securitySchemes:
+    Authorize:
+      description: Authenticate API requests via a JWT
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
