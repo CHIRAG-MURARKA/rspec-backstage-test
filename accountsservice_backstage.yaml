@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: accounts-service-apis
+  description: Api for customer and user authorization.
+  tags:
+    - accounts-service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: accounts
+  definition:
+    $text: ./accountsservice_openapi.yaml
