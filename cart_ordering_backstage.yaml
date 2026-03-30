@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: test-apis-cart
+  description: Api for customer and user authorization
+  tags:
+    - account-service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: account
+  definition:
+    $text: ./cart_ordering_openapi.yaml
